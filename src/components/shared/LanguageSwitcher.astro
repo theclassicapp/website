@@ -12,8 +12,9 @@ function getPathWithoutLocale(path: string): string {
   if (base !== '/' && p.startsWith(base)) {
     p = p.slice(base.length);
   }
-  // Remove locale prefix
-  for (const loc of Object.keys(languages)) {
+  // Remove locale prefix — check longest codes first to avoid partial matches
+  const codes = Object.keys(languages).sort((a, b) => b.length - a.length);
+  for (const loc of codes) {
     if (p.startsWith(`/${loc}/`) || p === `/${loc}`) {
       p = p.slice(loc.length + 1) || '/';
       break;
@@ -31,21 +32,59 @@ function getLocalizedPath(targetLocale: Locale): string {
   }
   return `${base}/${targetLocale}${path === '/' ? '' : path}`;
 }
+
+// Short display label for compact header
+const shortLabels: Record<string, string> = {
+  ar: 'عربي', de: 'DE', en: 'EN', es: 'ES', fr: 'FR',
+  he: 'עב', hi: 'हि', id: 'ID', it: 'IT', ja: '日本',
+  ko: '한국', nl: 'NL', pl: 'PL', 'pt-BR': 'PT', ru: 'RU',
+  th: 'ไทย', tr: 'TR', vi: 'VI', 'zh-CN': '简中', 'zh-TW': '繁中',
+};
 ---
 
-<div class="flex items-center gap-1 text-sm">
-  {Object.entries(languages).map(([code, name], i) => (
-    <>
-      {i > 0 && <span class="text-foreground-muted">|</span>}
+<div class="relative">
+  <button
+    id="lang-toggle"
+    class="flex items-center gap-1 rounded-md px-2 py-1 text-sm text-foreground-muted transition-colors hover:text-foreground"
+    aria-label="Switch language"
+  >
+    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+    </svg>
+    <span>{shortLabels[locale] || locale}</span>
+    <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+
+  <div
+    id="lang-menu"
+    class="absolute right-0 top-full z-50 mt-1 hidden max-h-80 w-48 overflow-y-auto rounded-lg border border-border bg-surface py-1 shadow-lg"
+  >
+    {Object.entries(languages).map(([code, name]) => (
       <a
         href={getLocalizedPath(code as Locale)}
         class:list={[
-          'px-1 transition-colors',
-          code === locale ? 'font-medium text-foreground' : 'text-foreground-muted hover:text-foreground',
+          'block px-4 py-2 text-sm transition-colors',
+          code === locale ? 'bg-primary/10 font-medium text-primary' : 'text-foreground-muted hover:bg-surface-dim hover:text-foreground',
         ]}
       >
-        {code === 'en' ? 'EN' : '中文'}
+        {name}
       </a>
-    </>
-  ))}
+    ))}
+  </div>
 </div>
+
+<script>
+  const toggle = document.getElementById('lang-toggle');
+  const menu = document.getElementById('lang-menu');
+
+  toggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menu?.classList.toggle('hidden');
+  });
+
+  document.addEventListener('click', () => {
+    menu?.classList.add('hidden');
+  });
+</script>

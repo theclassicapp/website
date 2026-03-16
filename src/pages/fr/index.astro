@@ -1,0 +1,23 @@
+---
+import '@/styles/global.css';
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Hero from '@/components/home/Hero.astro';
+import FeatureHighlights from '@/components/home/FeatureHighlights.astro';
+import EditorShowcase from '@/components/home/EditorShowcase.astro';
+import MoreFeatures from '@/components/home/MoreFeatures.astro';
+import DownloadCTA from '@/components/home/DownloadCTA.astro';
+---
+
+<BaseLayout>
+  <Header />
+  <main>
+    <Hero />
+    <FeatureHighlights />
+    <EditorShowcase />
+    <MoreFeatures />
+    <DownloadCTA />
+  </main>
+  <Footer />
+</BaseLayout>
