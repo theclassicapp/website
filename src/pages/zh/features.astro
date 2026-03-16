@@ -1,0 +1,75 @@
+---
+import '@/styles/global.css';
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import { t, getLocale } from '@/i18n';
+
+const locale = getLocale(Astro.currentLocale);
+
+const features = [
+  {
+    key: 'editor',
+    icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
+  },
+  {
+    key: 'organization',
+    icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+  },
+  {
+    key: 'privacy',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+  },
+  {
+    key: 'productivity',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+  },
+  {
+    key: 'crossplatform',
+    icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+  },
+  {
+    key: 'opensource',
+    icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+  },
+];
+---
+
+<BaseLayout title={t(locale, 'features.page.title')}>
+  <Header />
+  <main>
+    <section class="py-24 text-center">
+      <div class="mx-auto max-w-6xl px-6">
+        <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          {t(locale, 'features.page.heading')}
+        </h1>
+        <p class="mt-4 text-lg text-foreground-muted">
+          {t(locale, 'features.page.subtitle')}
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-surface-dim py-24">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+          {features.map(({ key, icon }) => (
+            <div class="rounded-xl border border-border bg-surface p-8">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icon} />
+                </svg>
+              </div>
+              <h3 class="mt-6 text-xl font-semibold text-foreground">
+                {t(locale, `features.${key}.title`)}
+              </h3>
+              <p class="mt-3 text-foreground-muted">
+                {t(locale, `features.${key}.desc`)}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

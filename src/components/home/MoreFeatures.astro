@@ -1,0 +1,63 @@
+---
+import { t, getLocale } from '@/i18n';
+
+const locale = getLocale(Astro.currentLocale);
+
+const features = [
+  { key: 'daily', icon: 'calendar' },
+  { key: 'subnotes', icon: 'folder' },
+  { key: 'tags', icon: 'tag' },
+  { key: 'backlinks', icon: 'link' },
+  { key: 'versions', icon: 'clock' },
+  { key: 'backup', icon: 'shield' },
+  { key: 'command', icon: 'command' },
+  { key: 'import', icon: 'transfer' },
+  { key: 'i18n', icon: 'language' },
+  { key: 'tray', icon: 'tray' },
+  { key: 'themes', icon: 'palette' },
+  { key: 'opensource', icon: 'code' },
+];
+
+// Simple SVG paths for each icon
+const iconPaths: Record<string, string> = {
+  calendar: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
+  folder: 'M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z',
+  tag: 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z',
+  link: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',
+  clock: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+  shield: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+  command: 'M4 6h16M4 12h16M4 18h7',
+  transfer: 'M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12',
+  language: 'M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129',
+  tray: 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4',
+  palette: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
+  code: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+};
+---
+
+<section class="bg-surface-dim py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        {t(locale, 'more.title')}
+      </h2>
+      <p class="mt-4 text-lg text-foreground-muted">
+        {t(locale, 'more.subtitle')}
+      </p>
+    </div>
+
+    <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {features.map(({ key, icon }) => (
+        <div class="rounded-xl border border-border bg-surface p-6 transition-shadow hover:shadow-md">
+          <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={iconPaths[icon]} />
+            </svg>
+          </div>
+          <h3 class="mt-4 font-semibold text-foreground">{t(locale, `more.${key}`)}</h3>
+          <p class="mt-2 text-sm text-foreground-muted">{t(locale, `more.${key}.desc`)}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

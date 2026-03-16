@@ -1,0 +1,33 @@
+---
+import { t, getLocale } from '@/i18n';
+
+const locale = getLocale(Astro.currentLocale);
+---
+
+<footer class="border-t border-border bg-surface-dim">
+  <div class="mx-auto max-w-6xl px-6 py-12">
+    <div class="flex flex-col items-center gap-4 text-center">
+      <span class="font-heading text-lg font-semibold text-foreground">Classic</span>
+      <p class="text-sm text-foreground-muted">{t(locale, 'footer.built')}</p>
+      <div class="flex items-center gap-6">
+        <a
+          href="https://github.com/theclassicapp/classic"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm text-foreground-muted transition-colors hover:text-foreground"
+        >
+          GitHub
+        </a>
+        <a
+          href="https://github.com/theclassicapp/classic/blob/main/LICENSE"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm text-foreground-muted transition-colors hover:text-foreground"
+        >
+          MIT License
+        </a>
+      </div>
+      <p class="text-xs text-foreground-muted">{t(locale, 'footer.copyright')}</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,73 @@
+---
+import '@/styles/global.css';
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Button from '@/components/shared/Button.astro';
+import { t, getLocale } from '@/i18n';
+
+const locale = getLocale(Astro.currentLocale);
+const base = import.meta.env.BASE_URL;
+
+const freeFeatures = ['f1', 'f2', 'f3', 'f4', 'f5'];
+---
+
+<BaseLayout title={t(locale, 'pricing.page.title')}>
+  <Header />
+  <main>
+    <section class="py-24 text-center">
+      <div class="mx-auto max-w-6xl px-6">
+        <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          {t(locale, 'pricing.page.heading')}
+        </h1>
+        <p class="mt-4 text-lg text-foreground-muted">
+          {t(locale, 'pricing.page.subtitle')}
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-surface-dim py-24">
+      <div class="mx-auto max-w-md px-6">
+        <div class="rounded-2xl border-2 border-accent bg-surface p-8 text-center shadow-lg">
+          <h3 class="text-lg font-semibold text-foreground">
+            {t(locale, 'pricing.free.title')}
+          </h3>
+          <div class="mt-4">
+            <span class="text-5xl font-bold text-foreground">{t(locale, 'pricing.free.price')}</span>
+            <span class="ml-2 text-foreground-muted">/ {t(locale, 'pricing.free.period')}</span>
+          </div>
+          <p class="mt-4 text-foreground-muted">{t(locale, 'pricing.free.desc')}</p>
+
+          <ul class="mt-8 space-y-3 text-left">
+            {freeFeatures.map(key => (
+              <li class="flex items-center gap-3">
+                <svg class="h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-foreground-muted">{t(locale, `pricing.free.${key}`)}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-8">
+            <Button href={`${base}${locale === 'en' ? '/download' : '/zh/download'}`} variant="primary" size="lg" class="w-full">
+              {t(locale, 'pricing.free.cta')}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24">
+      <div class="mx-auto max-w-2xl px-6 text-center">
+        <h2 class="text-2xl font-bold text-foreground">
+          {t(locale, 'pricing.opensource.title')}
+        </h2>
+        <p class="mt-4 text-foreground-muted">
+          {t(locale, 'pricing.opensource.desc')}
+        </p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

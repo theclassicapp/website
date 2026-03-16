@@ -1,0 +1,51 @@
+---
+import { getLocale, languages, type Locale } from '@/i18n';
+
+const locale = getLocale(Astro.currentLocale);
+const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+
+// Compute the path without base and locale prefix
+function getPathWithoutLocale(path: string): string {
+  let p = path;
+  // Remove base
+  if (base !== '/' && p.startsWith(base)) {
+    p = p.slice(base.length);
+  }
+  // Remove locale prefix
+  for (const loc of Object.keys(languages)) {
+    if (p.startsWith(`/${loc}/`) || p === `/${loc}`) {
+      p = p.slice(loc.length + 1) || '/';
+      break;
+    }
+  }
+  return p || '/';
+}
+
+const pathWithoutLocale = getPathWithoutLocale(currentPath);
+
+function getLocalizedPath(targetLocale: Locale): string {
+  const path = pathWithoutLocale === '/' ? '/' : pathWithoutLocale;
+  if (targetLocale === 'en') {
+    return `${base}${path}`;
+  }
+  return `${base}/${targetLocale}${path === '/' ? '' : path}`;
+}
+---
+
+<div class="flex items-center gap-1 text-sm">
+  {Object.entries(languages).map(([code, name], i) => (
+    <>
+      {i > 0 && <span class="text-foreground-muted">|</span>}
+      <a
+        href={getLocalizedPath(code as Locale)}
+        class:list={[
+          'px-1 transition-colors',
+          code === locale ? 'font-medium text-foreground' : 'text-foreground-muted hover:text-foreground',
+        ]}
+      >
+        {code === 'en' ? 'EN' : '中文'}
+      </a>
+    </>
+  ))}
+</div>

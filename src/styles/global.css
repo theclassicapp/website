@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #1e3a5f;
+  --color-primary-light: #2a5088;
+  --color-accent: #c9a84c;
+  --color-accent-light: #d4b968;
+  --color-surface: #ffffff;
+  --color-surface-dim: #f5f5f5;
+  --color-surface-bright: #fafafa;
+  --color-foreground: #1a1a1a;
+  --color-foreground-muted: #6b7280;
+  --color-border: #e5e7eb;
+
+  --font-heading: 'Georgia', serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-foreground);
+    background-color: var(--color-surface);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Dark mode */
+  .dark body {
+    --color-surface: #0f172a;
+    --color-surface-dim: #1e293b;
+    --color-surface-bright: #1a2332;
+    --color-foreground: #f1f5f9;
+    --color-foreground-muted: #94a3b8;
+    --color-border: #334155;
+    --color-primary: #60a5fa;
+    --color-primary-light: #93c5fd;
+    --color-accent: #d4b968;
+    --color-accent-light: #e0cb82;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
