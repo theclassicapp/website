@@ -104,6 +104,7 @@ export default {
   'download.linux.desc': 'AppImage & .deb',
   'download.linux.req': 'Ubuntu 20.04+ / Fedora 36+',
   'download.button': 'ดาวน์โหลด',
+  'download.comingSoon': 'เร็วๆ นี้',
   'download.releases': 'ดูทุกเวอร์ชันบน GitHub',
 
   // Pricing Page

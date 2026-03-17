@@ -3,11 +3,9 @@ import '@/styles/global.css';
 import BaseLayout from '@/components/layout/BaseLayout.astro';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
-import Button from '@/components/shared/Button.astro';
 import { t, getLocale } from '@/i18n';
 
 const locale = getLocale(Astro.currentLocale);
-const githubReleasesUrl = 'https://github.com/theclassicapp/classic/releases/latest';
 
 const platforms = [
   {
@@ -59,19 +57,13 @@ const platforms = [
                 {t(locale, `download.${key}.req`)}
               </p>
               <div class="mt-6">
-                <Button href={githubReleasesUrl} variant="primary" size="md" target="_blank" rel="noopener noreferrer">
-                  {t(locale, 'download.button')}
-                </Button>
+                <span class="inline-flex items-center justify-center rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+                  {t(locale, 'download.comingSoon')}
+                </span>
               </div>
             </div>
           ))}
         </div>
-
-        <p class="mt-12 text-center">
-          <a href={githubReleasesUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-primary hover:text-primary-light">
-            {t(locale, 'download.releases')} &rarr;
-          </a>
-        </p>
       </div>
     </section>
   </main>

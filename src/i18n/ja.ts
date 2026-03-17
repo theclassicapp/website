@@ -104,6 +104,7 @@ export default {
   'download.linux.desc': 'AppImage & .deb',
   'download.linux.req': 'Ubuntu 20.04+ / Fedora 36+',
   'download.button': 'ダウンロード',
+  'download.comingSoon': '近日公開',
   'download.releases': 'GitHub ですべてのリリースを見る',
 
   // Pricing Page
