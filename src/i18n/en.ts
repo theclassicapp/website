@@ -61,17 +61,6 @@ export default {
   'more.tray.desc': 'Quick access from the system tray, always one click away.',
   'more.themes': 'Themes',
   'more.themes.desc': 'Light and dark modes that follow your system preference.',
-  'more.opensource': 'Open Source',
-  'more.opensource.desc': 'MIT licensed. Transparent, community-driven development.',
-
-  // Download CTA
-  'cta.title': 'Ready to Simplify Your Notes?',
-  'cta.subtitle': 'Download Classic for free and start writing today.',
-  'cta.button': 'Download for Free',
-
-  // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': 'Built with simplicity in mind.',
 
   // Features Page
   'features.page.title': 'Features — Classic',
@@ -87,13 +76,11 @@ export default {
   'features.productivity.desc': 'Global quick capture, command palette, keyboard shortcuts, daily notes, and system tray integration. Every feature designed to keep you in flow.',
   'features.crossplatform.title': 'Cross-Platform',
   'features.crossplatform.desc': 'Native performance on macOS, Windows, and Linux. Built with Electron and React for a consistent experience everywhere.',
-  'features.opensource.title': 'Open Source',
-  'features.opensource.desc': 'MIT licensed and community-driven. Inspect the code, contribute features, or fork it to make it your own.',
 
   // Download Page
   'download.page.title': 'Download — Classic',
   'download.page.heading': 'Download Classic',
-  'download.page.subtitle': 'Free and open source. Available for macOS, Windows, and Linux.',
+  'download.page.subtitle': 'Free download. Available for macOS, Windows, and Linux.',
   'download.macos': 'macOS',
   'download.macos.desc': 'Apple Silicon & Intel',
   'download.macos.req': 'Requires macOS 12 or later',
@@ -110,7 +97,7 @@ export default {
   // Pricing Page
   'pricing.page.title': 'Pricing — Classic',
   'pricing.page.heading': 'Pricing',
-  'pricing.page.subtitle': 'Classic is free and open source. No subscriptions, no hidden costs.',
+  'pricing.page.subtitle': 'Classic is free to No subscriptions, no hidden costs.',
   'pricing.free.title': 'Free',
   'pricing.free.price': '$0',
   'pricing.free.period': 'forever',
@@ -121,8 +108,6 @@ export default {
   'pricing.free.f4': 'No account required',
   'pricing.free.f5': 'Community support',
   'pricing.free.cta': 'Download for Free',
-  'pricing.opensource.title': 'Why free?',
-  'pricing.opensource.desc': 'Classic is MIT licensed open-source software. We believe personal knowledge management tools should be accessible to everyone. The source code is available on GitHub for anyone to inspect, contribute to, or fork.',
 
   // 404 Page
   '404.title': 'Page Not Found',
