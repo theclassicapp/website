@@ -3,8 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://theclassicapp.github.io',
-  base: '/website',
+  site: 'https://theclassic.app',
   output: 'static',
   i18n: {
     defaultLocale: 'en',
