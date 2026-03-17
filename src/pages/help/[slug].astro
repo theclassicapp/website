@@ -16,8 +16,9 @@ export async function getStaticPaths() {
   }));
 }
 
+const slug = Astro.params.slug as string;
 const entry = await getCollection('help').then(entries =>
-  entries.find(e => e.slug === Astro.params.slug)
+  entries.find(e => e.slug === slug)
 );
 
 if (!entry) {
@@ -25,8 +26,11 @@ if (!entry) {
 }
 
 const { Content } = await render(entry);
+
+// Extract title from first H1 in the markdown content
+// Since markdown files don't have frontmatter, we use the slug-based lookup in HelpLayout
 ---
 
-<HelpLayout title={entry.data.title} category={entry.data.category || 'Help'}>
+<HelpLayout currentSlug={slug}>
   <Content />
 </HelpLayout>

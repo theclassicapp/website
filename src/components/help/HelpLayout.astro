@@ -6,7 +6,7 @@ import Footer from '@/components/layout/Footer.astro';
 import { withBase } from '@/i18n';
 
 const base = import.meta.env.BASE_URL;
-const { title, description, category } = Astro.props;
+const { currentSlug } = Astro.props;
 
 // Navigation for help articles
 const allArticles = [
@@ -36,51 +36,72 @@ const allArticles = [
   { slug: 'settings', title: 'Settings Overview', category: 'Customization' },
 ];
 
+// Group articles by category
+const categories = [
+  { name: 'Getting Started', articles: allArticles.filter(a => a.category === 'Getting Started') },
+  { name: 'Editor & Writing', articles: allArticles.filter(a => a.category === 'Editor & Writing') },
+  { name: 'Organization', articles: allArticles.filter(a => a.category === 'Organization') },
+  { name: 'Productivity', articles: allArticles.filter(a => a.category === 'Productivity') },
+  { name: 'Data & Privacy', articles: allArticles.filter(a => a.category === 'Data & Privacy') },
+  { name: 'Customization', articles: allArticles.filter(a => a.category === 'Customization') },
+];
+
 // Find current article index
-const currentIndex = allArticles.findIndex(a => a.title === title);
+const currentIndex = allArticles.findIndex(a => a.slug === currentSlug);
 const prevArticle = currentIndex > 0 ? allArticles[currentIndex - 1] : null;
 const nextArticle = currentIndex < allArticles.length - 1 ? allArticles[currentIndex + 1] : null;
+
+// Get current article info
+const currentArticle = allArticles.find(a => a.slug === currentSlug);
+const title = currentArticle?.title || 'Help';
+const category = currentArticle?.category || 'Help';
+const description = '';
 ---
 
 <BaseLayout title={`${title} — Classic Help`}>
   <Header />
-  <main class="py-12">
-    <div class="mx-auto max-w-6xl px-6">
+  <main class="min-h-screen bg-surface-dim">
+    <div class="mx-auto max-w-7xl px-4 py-8 lg:px-8">
       <div class="lg:grid lg:grid-cols-[280px_1fr] lg:gap-12">
-        <!-- Sidebar -->
+        <!-- Sidebar Navigation -->
         <aside class="hidden lg:block">
-          <nav class="sticky top-24 space-y-8">
-            <div>
-              <a href={withBase(base, '/help')} class="flex items-center gap-2 text-sm text-foreground-muted hover:text-foreground">
-                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-                Back to Help Center
-              </a>
-            </div>
+          <nav class="sticky top-8 space-y-6">
+            <!-- Back to Help Center -->
+            <a
+              href={withBase(base, '/help')}
+              class="flex items-center gap-2 text-sm font-medium text-foreground-muted transition-colors hover:text-foreground"
+            >
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back to Help Center
+            </a>
 
             <!-- Category Navigation -->
-            {['Getting Started', 'Editor & Writing', 'Organization', 'Productivity', 'Data & Privacy', 'Customization'].map((cat) => (
-              <div>
-                <h3 class="mb-2 text-xs font-semibold uppercase tracking-wider text-foreground-muted">
-                  {cat}
+            {categories.map((cat) => (
+              <div class="space-y-2">
+                <h3 class="px-3 text-xs font-semibold uppercase tracking-wider text-foreground-muted">
+                  {cat.name}
                 </h3>
                 <ul class="space-y-1">
-                  {allArticles.filter(a => a.category === cat).map((article) => (
-                    <li>
-                      <a
-                        href={withBase(base, `/help/${article.slug}`)}
-                        class:list={[
-                          'block rounded-lg px-3 py-1.5 text-sm transition-colors',
-                          article.title === title
-                            ? 'bg-primary/10 font-medium text-primary'
-                            : 'text-foreground-muted hover:bg-surface-dim hover:text-foreground',
-                        ]}
-                      >
-                        {article.title}
-                      </a>
-                    </li>
-                  ))}
+                  {cat.articles.map((article) => {
+                    const isActive = article.slug === currentSlug;
+                    return (
+                      <li>
+                        <a
+                          href={withBase(base, `/help/${article.slug}`)}
+                          class:list={[
+                            'block rounded-lg px-3 py-2 text-sm transition-all duration-200',
+                            isActive
+                              ? 'bg-primary/10 font-medium text-primary'
+                              : 'text-foreground-muted hover:bg-surface hover:text-foreground'
+                          ]}
+                        >
+                          {article.title}
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
@@ -89,71 +110,75 @@ const nextArticle = currentIndex < allArticles.length - 1 ? allArticles[currentI
 
         <!-- Main Content -->
         <div class="min-w-0">
-          <!-- Mobile Back Link -->
-          <div class="mb-6 lg:hidden">
-            <a href={withBase(base, '/help')} class="flex items-center gap-2 text-sm text-foreground-muted hover:text-foreground">
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              Back to Help Center
-            </a>
-          </div>
-
           <!-- Breadcrumb -->
-          <div class="mb-4 flex items-center gap-2 text-sm text-foreground-muted">
-            <a href={withBase(base, '/help')} class="hover:text-foreground">Help</a>
-            <span>/</span>
-            <span>{category}</span>
-          </div>
+          <nav class="mb-6 flex items-center gap-2 text-sm">
+            <a href={withBase(base, '/help')} class="text-foreground-muted hover:text-foreground">
+              Help
+            </a>
+            <svg class="h-4 w-4 text-foreground-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+            <span class="font-medium text-foreground">{title}</span>
+          </nav>
 
-          <!-- Article Header -->
-          <header class="mb-8">
-            <h1 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              {title}
-            </h1>
-            {description && (
-              <p class="mt-4 text-lg text-foreground-muted">
-                {description}
-              </p>
-            )}
-          </header>
+          <!-- Article -->
+          <article class="rounded-2xl border border-border bg-surface p-8 shadow-sm lg:p-12">
+            <!-- Article Header -->
+            <header class="mb-8 border-b border-border pb-8">
+              <span class="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                {category}
+              </span>
+              <h1 class="mt-4 text-3xl font-bold tracking-tight text-foreground lg:text-4xl">
+                {title}
+              </h1>
+              {description && (
+                <p class="mt-4 text-lg text-foreground-muted">
+                  {description}
+                </p>
+              )}
+            </header>
 
-          <!-- Article Content -->
-          <article class="prose prose-slate dark:prose-invert max-w-none">
-            <slot />
+            <!-- Article Content -->
+            <div class="help-content">
+              <slot />
+            </div>
           </article>
 
           <!-- Navigation -->
-          <nav class="mt-12 flex items-center justify-between border-t border-border pt-8">
+          <nav class="mt-8 flex items-center justify-between gap-4 border-t border-border pt-8">
             {prevArticle ? (
               <a
                 href={withBase(base, `/help/${prevArticle.slug}`)}
-                class="flex items-center gap-2 text-foreground-muted hover:text-foreground"
+                class="group flex flex-1 items-center gap-3 rounded-xl border border-border bg-surface p-4 transition-all hover:border-primary hover:shadow-md"
               >
-                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="h-5 w-5 text-foreground-muted transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>
-                <div>
-                  <div class="text-xs text-foreground-muted">Previous</div>
-                  <div class="text-sm font-medium">{prevArticle.title}</div>
+                <div class="text-left">
+                  <span class="block text-xs text-foreground-muted">Previous</span>
+                  <span class="font-medium text-foreground">{prevArticle.title}</span>
                 </div>
               </a>
-            ) : <div></div>}
+            ) : (
+              <div class="flex-1"></div>
+            )}
 
             {nextArticle ? (
               <a
                 href={withBase(base, `/help/${nextArticle.slug}`)}
-                class="flex items-center gap-2 text-right text-foreground-muted hover:text-foreground"
+                class="group flex flex-1 items-center justify-end gap-3 rounded-xl border border-border bg-surface p-4 text-right transition-all hover:border-primary hover:shadow-md"
               >
                 <div>
-                  <div class="text-xs text-foreground-muted">Next</div>
-                  <div class="text-sm font-medium">{nextArticle.title}</div>
+                  <span class="block text-xs text-foreground-muted">Next</span>
+                  <span class="font-medium text-foreground">{nextArticle.title}</span>
                 </div>
-                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="h-5 w-5 text-foreground-muted transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
               </a>
-            ) : <div></div>}
+            ) : (
+              <div class="flex-1"></div>
+            )}
           </nav>
         </div>
       </div>
@@ -163,92 +188,133 @@ const nextArticle = currentIndex < allArticles.length - 1 ? allArticles[currentI
 </BaseLayout>
 
 <style>
-  .prose h2 {
-    margin-top: 2rem;
+  /* Hide first h1 in content since we show it in the header */
+  .help-content :global(h1:first-child) {
+    display: none;
+  }
+
+  /* Help content styling */
+  .help-content :global(h2) {
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-foreground);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
   }
-  .prose h3 {
-    margin-top: 1.5rem;
+
+  .help-content :global(h3) {
+    margin-top: 2rem;
     margin-bottom: 0.75rem;
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--color-foreground);
   }
-  .prose p {
-    margin-bottom: 1rem;
-    color: var(--color-foreground-muted);
-    line-height: 1.75;
+
+  .help-content :global(h4) {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-foreground);
   }
-  .prose ul, .prose ol {
+
+  .help-content :global(p) {
+    margin-bottom: 1rem;
+    line-height: 1.75;
+    color: var(--color-foreground-muted);
+  }
+
+  .help-content :global(ul),
+  .help-content :global(ol) {
     margin-bottom: 1rem;
     padding-left: 1.5rem;
     color: var(--color-foreground-muted);
   }
-  .prose li {
+
+  .help-content :global(li) {
     margin-bottom: 0.5rem;
+    line-height: 1.75;
   }
-  .prose code {
-    border-radius: 0.25rem;
+
+  .help-content :global(a) {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .help-content :global(a:hover) {
+    text-decoration: underline;
+  }
+
+  .help-content :global(code) {
     background-color: var(--color-surface-dim);
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-border);
     padding: 0.125rem 0.375rem;
-    font-size: 0.875rem;
+    font-size: 0.875em;
     font-family: ui-monospace, monospace;
     color: var(--color-primary);
   }
-  .prose pre {
-    margin-bottom: 1rem;
-    border-radius: 0.5rem;
+
+  .help-content :global(pre) {
+    margin-bottom: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
     background-color: var(--color-surface-dim);
     padding: 1rem;
     overflow-x: auto;
   }
-  .prose pre code {
+
+  .help-content :global(pre code) {
     background-color: transparent;
+    border: none;
     padding: 0;
+    font-size: 0.875rem;
+    color: var(--color-foreground);
   }
-  .prose blockquote {
+
+  .help-content :global(blockquote) {
+    margin: 1.5rem 0;
     border-left: 4px solid var(--color-primary);
-    padding-left: 1rem;
+    padding-left: 1.25rem;
     font-style: italic;
     color: var(--color-foreground-muted);
   }
-  .prose a {
-    color: var(--color-primary);
-  }
-  .prose a:hover {
-    text-decoration: underline;
-  }
-  .prose table {
-    margin-bottom: 1rem;
+
+  .help-content :global(table) {
+    margin-bottom: 1.5rem;
     width: 100%;
     border-collapse: collapse;
   }
-  .prose th, .prose td {
+
+  .help-content :global(th),
+  .help-content :global(td) {
     border: 1px solid var(--color-border);
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     text-align: left;
   }
-  .prose th {
+
+  .help-content :global(th) {
     background-color: var(--color-surface-dim);
     font-weight: 600;
     color: var(--color-foreground);
   }
-  .prose img {
-    margin-bottom: 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--color-border);
+
+  .help-content :global(td) {
+    color: var(--color-foreground-muted);
   }
-  .prose hr {
-    margin: 2rem 0;
+
+  .help-content :global(hr) {
+    margin: 2.5rem 0;
     border-color: var(--color-border);
   }
-  .prose kbd {
+
+  .help-content :global(kbd) {
     display: inline-flex;
     align-items: center;
-    border-radius: 0.25rem;
+    border-radius: 0.375rem;
     border: 1px solid var(--color-border);
     background-color: var(--color-surface-dim);
     padding: 0.125rem 0.5rem;
@@ -256,5 +322,16 @@ const nextArticle = currentIndex < allArticles.length - 1 ? allArticles[currentI
     font-family: ui-monospace, monospace;
     color: var(--color-foreground-muted);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .help-content :global(img) {
+    margin-bottom: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+  }
+
+  .help-content :global(strong) {
+    font-weight: 600;
+    color: var(--color-foreground);
   }
 </style>
