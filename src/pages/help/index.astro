@@ -1,0 +1,160 @@
+---
+import '@/styles/global.css';
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import { t, getLocale, withBase } from '@/i18n';
+
+const locale = getLocale(Astro.currentLocale);
+const base = import.meta.env.BASE_URL;
+
+const helpCategories = [
+  {
+    title: 'Getting Started',
+    description: 'Learn the basics of Classic and get up to speed quickly.',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+    articles: [
+      { slug: 'getting-started', title: 'Quick Start Guide' },
+      { slug: 'interface', title: 'Understanding the Interface' },
+      { slug: 'first-note', title: 'Creating Your First Note' },
+    ],
+  },
+  {
+    title: 'Editor & Writing',
+    description: 'Master the powerful editor and all its features.',
+    icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
+    articles: [
+      { slug: 'markdown', title: 'Markdown Reference' },
+      { slug: 'slash-commands', title: 'Slash Commands' },
+      { slug: 'diagrams', title: 'Mermaid Diagrams' },
+      { slug: 'math', title: 'Math Equations with KaTeX' },
+      { slug: 'code-blocks', title: 'Code Blocks & Syntax Highlighting' },
+    ],
+  },
+  {
+    title: 'Organization',
+    description: 'Organize your notes with tags, sub-notes, and backlinks.',
+    icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+    articles: [
+      { slug: 'subnotes', title: 'Sub-notes & Hierarchies' },
+      { slug: 'tags', title: 'Working with Tags' },
+      { slug: 'backlinks', title: 'Backlinks & Connections' },
+      { slug: 'daily-notes', title: 'Daily Notes' },
+      { slug: 'search', title: 'Search & Find' },
+    ],
+  },
+  {
+    title: 'Productivity',
+    description: 'Boost your productivity with shortcuts and automation.',
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    articles: [
+      { slug: 'quick-capture', title: 'Quick Capture' },
+      { slug: 'command-palette', title: 'Command Palette' },
+      { slug: 'keyboard-shortcuts', title: 'Keyboard Shortcuts' },
+      { slug: 'system-tray', title: 'System Tray' },
+    ],
+  },
+  {
+    title: 'Data & Privacy',
+    description: 'Understand how Classic handles your data.',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    articles: [
+      { slug: 'local-first', title: 'Local-First Architecture' },
+      { slug: 'backup', title: 'Backup & Restore' },
+      { slug: 'version-history', title: 'Version History' },
+      { slug: 'import-export', title: 'Import & Export' },
+    ],
+  },
+  {
+    title: 'Customization',
+    description: 'Personalize Classic to fit your workflow.',
+    icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
+    articles: [
+      { slug: 'themes', title: 'Themes & Appearance' },
+      { slug: 'languages', title: 'Language Settings' },
+      { slug: 'settings', title: 'Settings Overview' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Help Center — Classic">
+  <Header />
+  <main>
+    <!-- Page Header -->
+    <section class="py-24 text-center">
+      <div class="mx-auto max-w-6xl px-6">
+        <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          Help Center
+        </h1>
+        <p class="mt-4 text-lg text-foreground-muted">
+          Everything you need to know about Classic. Find guides, tutorials, and answers to common questions.
+        </p>
+      </div>
+    </section>
+
+    <!-- Help Categories -->
+    <section class="bg-surface-dim py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {helpCategories.map((category) => (
+            <div class="rounded-xl border border-border bg-surface p-6">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={category.icon} />
+                </svg>
+              </div>
+              <h3 class="mt-4 text-lg font-semibold text-foreground">
+                {category.title}
+              </h3>
+              <p class="mt-2 text-sm text-foreground-muted">
+                {category.description}
+              </p>
+              <ul class="mt-4 space-y-2">
+                {category.articles.map((article) => (
+                  <li>
+                    <a
+                      href={withBase(base, `/help/${article.slug}`)}
+                      class="flex items-center gap-2 text-sm text-primary hover:underline"
+                    >
+                      <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      {article.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <h2 class="text-2xl font-bold text-foreground">Popular Articles</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href={withBase(base, '/help/getting-started')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Quick Start Guide</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Get started with Classic in 5 minutes.</p>
+          </a>
+          <a href={withBase(base, '/help/markdown')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Markdown Reference</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Complete guide to Markdown syntax.</p>
+          </a>
+          <a href={withBase(base, '/help/keyboard-shortcuts')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Keyboard Shortcuts</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Work faster with keyboard shortcuts.</p>
+          </a>
+          <a href={withBase(base, '/help/local-first')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Local-First Architecture</h3>
+            <p class="mt-1 text-sm text-foreground-muted">How Classic keeps your data private.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

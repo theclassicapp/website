@@ -7,6 +7,7 @@ export default {
   'nav.features': 'Возможности',
   'nav.download': 'Скачать',
   'nav.pricing': 'Цены',
+  'nav.help': 'Помощь',
 
   // Hero
   'hero.title': 'Управление личными знаниями, просто.',

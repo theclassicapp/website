@@ -7,6 +7,7 @@ export default {
   'nav.features': 'Features',
   'nav.download': 'Download',
   'nav.pricing': 'Pricing',
+  'nav.help': 'Help',
 
   // Hero
   'hero.title': 'Personal Knowledge Management, Simplified.',

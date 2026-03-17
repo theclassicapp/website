@@ -1,0 +1,32 @@
+---
+import '@/styles/global.css';
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import { withBase } from '@/i18n';
+import { getCollection, render } from 'astro:content';
+import HelpLayout from '@/components/help/HelpLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+
+export async function getStaticPaths() {
+  const helpEntries = await getCollection('help');
+  return helpEntries.map(entry => ({
+    params: { slug: entry.slug },
+  }));
+}
+
+const entry = await getCollection('help').then(entries =>
+  entries.find(e => e.slug === Astro.params.slug)
+);
+
+if (!entry) {
+  return Astro.redirect('/help');
+}
+
+const { Content } = await render(entry);
+---
+
+<HelpLayout title={entry.data.title} category={entry.data.category || 'Help'}>
+  <Content />
+</HelpLayout>

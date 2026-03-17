@@ -7,6 +7,7 @@ export default {
   'nav.features': '기능',
   'nav.download': '다운로드',
   'nav.pricing': '가격',
+  'nav.help': '도움말',
 
   // Hero
   'hero.title': '개인 지식 관리를 간편하게.',

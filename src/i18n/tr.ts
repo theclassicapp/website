@@ -7,6 +7,7 @@ export default {
   'nav.features': 'Özellikler',
   'nav.download': 'İndir',
   'nav.pricing': 'Fiyatlandırma',
+  'nav.help': 'Yardım',
 
   // Hero
   'hero.title': 'Kişisel Bilgi Yönetimi, Basitleştirilmiş.',

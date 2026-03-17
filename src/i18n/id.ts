@@ -7,6 +7,7 @@ export default {
   'nav.features': 'Fitur',
   'nav.download': 'Unduh',
   'nav.pricing': 'Harga',
+  'nav.help': 'Bantuan',
 
   // Hero
   'hero.title': 'Manajemen Pengetahuan Pribadi, Disederhanakan.',

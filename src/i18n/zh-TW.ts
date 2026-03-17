@@ -7,6 +7,7 @@ export default {
   'nav.features': '功能',
   'nav.download': '下載',
   'nav.pricing': '定價',
+  'nav.help': '幫助',
 
   // Hero
   'hero.title': '個人知識管理，化繁為簡。',

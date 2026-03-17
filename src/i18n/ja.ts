@@ -7,6 +7,7 @@ export default {
   'nav.features': '機能',
   'nav.download': 'ダウンロード',
   'nav.pricing': '料金',
+  'nav.help': 'ヘルプ',
 
   // Hero
   'hero.title': 'パーソナルナレッジ管理をシンプルに。',

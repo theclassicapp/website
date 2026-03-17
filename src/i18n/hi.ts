@@ -7,6 +7,7 @@ export default {
   'nav.features': 'सुविधाएँ',
   'nav.download': 'डाउनलोड',
   'nav.pricing': 'मूल्य',
+  'nav.help': 'मदद',
 
   // Hero
   'hero.title': 'व्यक्तिगत ज्ञान प्रबंधन, सरल बनाया।',

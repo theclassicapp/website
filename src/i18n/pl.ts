@@ -7,6 +7,7 @@ export default {
   'nav.features': 'Funkcje',
   'nav.download': 'Pobierz',
   'nav.pricing': 'Cennik',
+  'nav.help': 'Pomoc',
 
   // Hero
   'hero.title': 'Zarządzanie wiedzą osobistą, uproszczone.',

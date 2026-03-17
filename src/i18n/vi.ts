@@ -7,6 +7,7 @@ export default {
   'nav.features': 'Tính năng',
   'nav.download': 'Tải xuống',
   'nav.pricing': 'Giá cả',
+  'nav.help': 'Trợ giúp',
 
   // Hero
   'hero.title': 'Quản Lý Kiến Thức Cá Nhân, Đơn Giản Hóa.',

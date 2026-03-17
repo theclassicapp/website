@@ -7,6 +7,7 @@ export default {
   'nav.features': 'Functies',
   'nav.download': 'Download',
   'nav.pricing': 'Prijzen',
+  'nav.help': 'Hulp',
 
   // Hero
   'hero.title': 'Persoonlijk kennisbeheer, vereenvoudigd.',
