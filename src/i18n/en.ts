@@ -60,6 +60,11 @@ export default {
   'more.themes': 'Themes',
   'more.themes.desc': 'Light and dark modes that follow your system preference.',
 
+  // Download CTA
+  'cta.title': 'Ready to Simplify Your Notes?',
+  'cta.subtitle': 'Download Classic for free and start writing today.',
+  'cta.button': 'Download for Free',
+
   // Features Page
   'features.page.title': 'Features — Classic',
   'features.page.heading': 'Features',
@@ -95,7 +100,7 @@ export default {
   // Pricing Page
   'pricing.page.title': 'Pricing — Classic',
   'pricing.page.heading': 'Pricing',
-  'pricing.page.subtitle': 'Classic is free to No subscriptions, no hidden costs.',
+  'pricing.page.subtitle': 'Classic is free. No subscriptions, no hidden costs.',
   'pricing.free.title': 'Free',
   'pricing.free.price': '$0',
   'pricing.free.period': 'forever',
