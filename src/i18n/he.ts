@@ -7,13 +7,11 @@ export default {
   'nav.features': 'תכונות',
   'nav.download': 'הורדה',
   'nav.pricing': 'תמחור',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': 'ניהול ידע אישי, בפשטות.',
   'hero.subtitle': 'מקומי-תחילה. חוצה פלטפורמות. ללא הגדרות. אפליקציית הערות יפה שפשוט עובדת.',
   'hero.cta.download': 'הורדה חינם',
-  'hero.cta.github': 'צפייה ב-GitHub',
 
   // Feature Highlights
   'features.highlights.title': 'למה Classic?',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': 'גישה מהירה ממגש המערכת, תמיד בלחיצה אחת.',
   'more.themes': 'ערכות נושא',
   'more.themes.desc': 'מצב בהיר וכהה שעוקבים אחרי העדפות המערכת.',
-  'more.opensource': 'קוד פתוח',
-  'more.opensource.desc': 'רישיון MIT. פיתוח שקוף מונע-קהילה.',
 
   // Download CTA
   'cta.title': 'מוכנים לפשט את ההערות שלכם?',
@@ -70,8 +66,7 @@ export default {
   'cta.button': 'הורדה חינם',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': 'נבנה עם פשטות בראש.',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': 'תכונות — Classic',
@@ -87,8 +82,6 @@ export default {
   'features.productivity.desc': 'לכידה מהירה גלובלית, לוח פקודות, קיצורי מקלדת, הערות יומיות ושילוב מגש מערכת. כל תכונה מתוכננת לשמור אתכם בזרימה.',
   'features.crossplatform.title': 'חוצה פלטפורמות',
   'features.crossplatform.desc': 'ביצועים מקומיים ב-macOS, Windows ו-Linux. נבנה עם Electron ו-React לחוויה אחידה בכל מקום.',
-  'features.opensource.title': 'קוד פתוח',
-  'features.opensource.desc': 'רישיון MIT ומונע-קהילה. בדקו את הקוד, תרמו תכונות, או צרו פורק ועשו אותו שלכם.',
 
   // Download Page
   'download.page.title': 'הורדה — Classic',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': 'אין צורך בחשבון',
   'pricing.free.f5': 'תמיכת קהילה',
   'pricing.free.cta': 'הורדה חינם',
-  'pricing.opensource.title': 'למה בחינם?',
-  'pricing.opensource.desc': 'Classic הוא תוכנת קוד פתוח ברישיון MIT. אנחנו מאמינים שכלי ניהול ידע אישי צריכים להיות נגישים לכולם. קוד המקור זמין ב-GitHub לכל מי שרוצה לבדוק, לתרום או ליצור פורק.',
 
   // 404 Page
   '404.title': 'הדף לא נמצא',

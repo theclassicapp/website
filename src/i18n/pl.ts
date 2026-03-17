@@ -7,13 +7,11 @@ export default {
   'nav.features': 'Funkcje',
   'nav.download': 'Pobierz',
   'nav.pricing': 'Cennik',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': 'Zarządzanie wiedzą osobistą, uproszczone.',
   'hero.subtitle': 'Local-first. Wieloplatformowa. Zero konfiguracji. Piękna aplikacja do notatek, która po prostu działa.',
   'hero.cta.download': 'Pobierz za darmo',
-  'hero.cta.github': 'Zobacz na GitHub',
 
   // Feature Highlights
   'features.highlights.title': 'Dlaczego Classic?',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': 'Szybki dostęp z zasobnika systemowego, zawsze jedno kliknięcie.',
   'more.themes': 'Motywy',
   'more.themes.desc': 'Tryb jasny i ciemny dopasowany do preferencji systemu.',
-  'more.opensource': 'Open source',
-  'more.opensource.desc': 'Licencja MIT. Przejrzysty rozwój napędzany przez społeczność.',
 
   // Download CTA
   'cta.title': 'Gotowy uprościć swoje notatki?',
@@ -70,8 +66,7 @@ export default {
   'cta.button': 'Pobierz za darmo',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': 'Stworzone z myślą o prostocie.',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': 'Funkcje — Classic',
@@ -87,13 +82,11 @@ export default {
   'features.productivity.desc': 'Globalne szybkie przechwytywanie, paleta poleceń, skróty klawiszowe, codzienne notatki i integracja z zasobnikiem systemowym. Każda funkcja zaprojektowana, by utrzymać Twój flow.',
   'features.crossplatform.title': 'Wieloplatformowa',
   'features.crossplatform.desc': 'Natywna wydajność na macOS, Windows i Linux. Zbudowana z Electron i React, zapewniając spójne doświadczenie wszędzie.',
-  'features.opensource.title': 'Open source',
-  'features.opensource.desc': 'Licencja MIT, napędzana przez społeczność. Przeglądaj kod, dodawaj funkcje lub stwórz własny fork.',
 
   // Download Page
   'download.page.title': 'Pobierz — Classic',
   'download.page.heading': 'Pobierz Classic',
-  'download.page.subtitle': 'Darmowa i open source. Dostępna na macOS, Windows i Linux.',
+  'download.page.subtitle': 'Darmowa. Dostępna na macOS, Windows i Linux.',
   'download.macos': 'macOS',
   'download.macos.desc': 'Apple Silicon & Intel',
   'download.macos.req': 'Wymaga macOS 12 lub nowszego',
@@ -110,7 +103,7 @@ export default {
   // Pricing Page
   'pricing.page.title': 'Cennik — Classic',
   'pricing.page.heading': 'Cennik',
-  'pricing.page.subtitle': 'Classic jest darmowy i open source. Bez subskrypcji, bez ukrytych kosztów.',
+  'pricing.page.subtitle': 'Classic jest darmowy. Bez subskrypcji, bez ukrytych kosztów.',
   'pricing.free.title': 'Bezpłatny',
   'pricing.free.price': '$0',
   'pricing.free.period': 'na zawsze',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': 'Bez wymogu konta',
   'pricing.free.f5': 'Wsparcie społeczności',
   'pricing.free.cta': 'Pobierz za darmo',
-  'pricing.opensource.title': 'Dlaczego za darmo?',
-  'pricing.opensource.desc': 'Classic to oprogramowanie open source na licencji MIT. Wierzymy, że narzędzia do zarządzania wiedzą osobistą powinny być dostępne dla każdego. Kod źródłowy jest dostępny na GitHub do wglądu, współtworzenia lub forkowania.',
 
   // 404 Page
   '404.title': 'Nie znaleziono strony',

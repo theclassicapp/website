@@ -7,13 +7,11 @@ export default {
   'nav.features': '기능',
   'nav.download': '다운로드',
   'nav.pricing': '가격',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': '개인 지식 관리를 간편하게.',
   'hero.subtitle': '로컬 우선. 크로스 플랫폼. 설정 불필요. 바로 쓸 수 있는 아름다운 메모 앱.',
   'hero.cta.download': '무료 다운로드',
-  'hero.cta.github': 'GitHub에서 보기',
 
   // Feature Highlights
   'features.highlights.title': '왜 Classic인가요?',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': '시스템 트레이에서 클릭 한 번으로 바로 접근.',
   'more.themes': '테마',
   'more.themes.desc': '라이트 및 다크 모드, 시스템 설정에 따라 자동 전환.',
-  'more.opensource': '오픈 소스',
-  'more.opensource.desc': 'MIT 라이선스. 투명하고 커뮤니티 주도 개발.',
 
   // Download CTA
   'cta.title': '노트를 간편하게 만들 준비가 되셨나요?',
@@ -70,8 +66,7 @@ export default {
   'cta.button': '무료 다운로드',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': '심플함을 추구하며 만들었습니다.',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': '기능 — Classic',
@@ -87,8 +82,6 @@ export default {
   'features.productivity.desc': '글로벌 빠른 캡처, 명령 팔레트, 키보드 단축키, 데일리 노트, 시스템 트레이 연동. 모든 기능이 몰입 상태를 유지하도록 설계되었습니다.',
   'features.crossplatform.title': '크로스 플랫폼',
   'features.crossplatform.desc': 'macOS, Windows, Linux에서 네이티브 성능을 제공합니다. Electron과 React로 구축하여 어디서나 일관된 경험을 제공합니다.',
-  'features.opensource.title': '오픈 소스',
-  'features.opensource.desc': 'MIT 라이선스, 커뮤니티 주도. 코드를 확인하고, 기능을 기여하거나, fork하여 나만의 것으로 만드세요.',
 
   // Download Page
   'download.page.title': '다운로드 — Classic',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': '계정 등록 불필요',
   'pricing.free.f5': '커뮤니티 지원',
   'pricing.free.cta': '무료 다운로드',
-  'pricing.opensource.title': '왜 무료인가요?',
-  'pricing.opensource.desc': 'Classic은 MIT 라이선스 오픈 소스 소프트웨어입니다. 개인 지식 관리 도구는 모든 사람이 이용할 수 있어야 한다고 믿습니다. 소스 코드는 GitHub에서 공개되어 있으며, 누구나 확인하고 기여하거나 fork할 수 있습니다.',
 
   // 404 Page
   '404.title': '페이지를 찾을 수 없습니다',

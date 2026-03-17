@@ -7,13 +7,11 @@ export default {
   'nav.features': 'सुविधाएँ',
   'nav.download': 'डाउनलोड',
   'nav.pricing': 'मूल्य',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': 'व्यक्तिगत ज्ञान प्रबंधन, सरल बनाया।',
   'hero.subtitle': 'लोकल-फर्स्ट। क्रॉस-प्लेटफ़ॉर्म। ज़ीरो कॉन्फ़िग। एक सुंदर नोट-टेकिंग ऐप जो बस काम करता है।',
   'hero.cta.download': 'मुफ़्त डाउनलोड करें',
-  'hero.cta.github': 'GitHub पर देखें',
 
   // Feature Highlights
   'features.highlights.title': 'Classic क्यों?',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': 'सिस्टम ट्रे से त्वरित पहुँच, हमेशा एक क्लिक दूर।',
   'more.themes': 'थीम',
   'more.themes.desc': 'लाइट और डार्क मोड जो आपकी सिस्टम प्राथमिकता का अनुसरण करते हैं।',
-  'more.opensource': 'ओपन सोर्स',
-  'more.opensource.desc': 'MIT लाइसेंस। पारदर्शी, समुदाय-संचालित विकास।',
 
   // Download CTA
   'cta.title': 'अपने नोट्स को सरल बनाने के लिए तैयार हैं?',
@@ -70,8 +66,7 @@ export default {
   'cta.button': 'मुफ़्त डाउनलोड करें',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': 'सरलता को ध्यान में रखकर बनाया गया।',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': 'सुविधाएँ — Classic',
@@ -87,8 +82,6 @@ export default {
   'features.productivity.desc': 'ग्लोबल क्विक कैप्चर, कमांड पैलेट, कीबोर्ड शॉर्टकट, दैनिक नोट्स और सिस्टम ट्रे इंटीग्रेशन। हर सुविधा आपको प्रवाह में बनाए रखने के लिए डिज़ाइन की गई है।',
   'features.crossplatform.title': 'क्रॉस-प्लेटफ़ॉर्म',
   'features.crossplatform.desc': 'macOS, Windows और Linux पर नेटिव प्रदर्शन। हर जगह एक समान अनुभव के लिए Electron और React से निर्मित।',
-  'features.opensource.title': 'ओपन सोर्स',
-  'features.opensource.desc': 'MIT लाइसेंस और समुदाय-संचालित। कोड की जाँच करें, सुविधाएँ योगदान करें, या इसे फ़ोर्क करके अपना बनाएँ।',
 
   // Download Page
   'download.page.title': 'डाउनलोड — Classic',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': 'कोई अकाउंट ज़रूरी नहीं',
   'pricing.free.f5': 'समुदाय सहायता',
   'pricing.free.cta': 'मुफ़्त डाउनलोड करें',
-  'pricing.opensource.title': 'मुफ़्त क्यों?',
-  'pricing.opensource.desc': 'Classic एक MIT लाइसेंस वाला ओपन-सोर्स सॉफ़्टवेयर है। हम मानते हैं कि व्यक्तिगत ज्ञान प्रबंधन उपकरण सभी के लिए सुलभ होने चाहिए। सोर्स कोड GitHub पर उपलब्ध है ताकि कोई भी इसे देख सके, योगदान कर सके या फ़ोर्क कर सके।',
 
   // 404 Page
   '404.title': 'पेज नहीं मिला',

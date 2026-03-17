@@ -7,13 +7,11 @@ export default {
   'nav.features': 'Возможности',
   'nav.download': 'Скачать',
   'nav.pricing': 'Цены',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': 'Управление личными знаниями, просто.',
   'hero.subtitle': 'Локальное хранение. Кроссплатформенность. Без настройки. Красивое приложение для заметок, которое просто работает.',
   'hero.cta.download': 'Скачать бесплатно',
-  'hero.cta.github': 'Смотреть на GitHub',
 
   // Feature Highlights
   'features.highlights.title': 'Почему Classic?',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': 'Быстрый доступ из системного трея — всегда в одном клике.',
   'more.themes': 'Темы',
   'more.themes.desc': 'Светлая и тёмная темы, следующие настройкам вашей системы.',
-  'more.opensource': 'Открытый исходный код',
-  'more.opensource.desc': 'Лицензия MIT. Прозрачная разработка силами сообщества.',
 
   // Download CTA
   'cta.title': 'Готовы упростить свои заметки?',
@@ -70,8 +66,7 @@ export default {
   'cta.button': 'Скачать бесплатно',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': 'Создано с заботой о простоте.',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': 'Возможности — Classic',
@@ -87,8 +82,6 @@ export default {
   'features.productivity.desc': 'Глобальный быстрый захват, палитра команд, горячие клавиши, ежедневные заметки и интеграция с системным треем. Каждая функция спроектирована для поддержания вашего потока.',
   'features.crossplatform.title': 'Кроссплатформенность',
   'features.crossplatform.desc': 'Нативная производительность на macOS, Windows и Linux. Создано на Electron и React для единообразного опыта повсюду.',
-  'features.opensource.title': 'Открытый исходный код',
-  'features.opensource.desc': 'Лицензия MIT, развитие силами сообщества. Изучайте код, вносите свой вклад или создайте форк для собственных нужд.',
 
   // Download Page
   'download.page.title': 'Скачать — Classic',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': 'Без регистрации',
   'pricing.free.f5': 'Поддержка сообщества',
   'pricing.free.cta': 'Скачать бесплатно',
-  'pricing.opensource.title': 'Почему бесплатно?',
-  'pricing.opensource.desc': 'Classic — это программное обеспечение с открытым исходным кодом под лицензией MIT. Мы верим, что инструменты управления личными знаниями должны быть доступны каждому. Исходный код доступен на GitHub для просмотра, участия в разработке или создания форка.',
 
   // 404 Page
   '404.title': 'Страница не найдена',

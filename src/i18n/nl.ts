@@ -7,13 +7,11 @@ export default {
   'nav.features': 'Functies',
   'nav.download': 'Download',
   'nav.pricing': 'Prijzen',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': 'Persoonlijk kennisbeheer, vereenvoudigd.',
   'hero.subtitle': 'Local-first. Cross-platform. Geen configuratie. Een prachtige notitie-app die gewoon werkt.',
   'hero.cta.download': 'Gratis downloaden',
-  'hero.cta.github': 'Bekijk op GitHub',
 
   // Feature Highlights
   'features.highlights.title': 'Waarom Classic?',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': 'Snelle toegang vanuit het systeemvak, altijd één klik verwijderd.',
   'more.themes': 'Thema\'s',
   'more.themes.desc': 'Lichte en donkere modus die je systeemvoorkeur volgen.',
-  'more.opensource': 'Open source',
-  'more.opensource.desc': 'MIT-licentie. Transparante, door de community gedreven ontwikkeling.',
 
   // Download CTA
   'cta.title': 'Klaar om je notities te vereenvoudigen?',
@@ -70,8 +66,7 @@ export default {
   'cta.button': 'Gratis downloaden',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': 'Gebouwd met eenvoud als uitgangspunt.',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': 'Functies — Classic',
@@ -87,13 +82,11 @@ export default {
   'features.productivity.desc': 'Globaal snel vastleggen, commandopalet, sneltoetsen, dagelijkse notities en systeemvakintegratie. Elke functie is ontworpen om je in je flow te houden.',
   'features.crossplatform.title': 'Cross-Platform',
   'features.crossplatform.desc': 'Native prestaties op macOS, Windows en Linux. Gebouwd met Electron en React voor een consistente ervaring overal.',
-  'features.opensource.title': 'Open source',
-  'features.opensource.desc': 'MIT-licentie en door de community gedreven. Bekijk de code, draag functies bij of fork het om het helemaal van jezelf te maken.',
 
   // Download Page
   'download.page.title': 'Download — Classic',
   'download.page.heading': 'Download Classic',
-  'download.page.subtitle': 'Gratis en open source. Beschikbaar voor macOS, Windows en Linux.',
+  'download.page.subtitle': 'Gratis. Beschikbaar voor macOS, Windows en Linux.',
   'download.macos': 'macOS',
   'download.macos.desc': 'Apple Silicon & Intel',
   'download.macos.req': 'Vereist macOS 12 of nieuwer',
@@ -110,7 +103,7 @@ export default {
   // Pricing Page
   'pricing.page.title': 'Prijzen — Classic',
   'pricing.page.heading': 'Prijzen',
-  'pricing.page.subtitle': 'Classic is gratis en open source. Geen abonnementen, geen verborgen kosten.',
+  'pricing.page.subtitle': 'Classic is gratis. Geen abonnementen, geen verborgen kosten.',
   'pricing.free.title': 'Gratis',
   'pricing.free.price': '$0',
   'pricing.free.period': 'voor altijd',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': 'Geen account nodig',
   'pricing.free.f5': 'Communityondersteuning',
   'pricing.free.cta': 'Gratis downloaden',
-  'pricing.opensource.title': 'Waarom gratis?',
-  'pricing.opensource.desc': 'Classic is open-source software onder de MIT-licentie. Wij geloven dat tools voor persoonlijk kennisbeheer voor iedereen toegankelijk moeten zijn. De broncode is beschikbaar op GitHub zodat iedereen deze kan bekijken, bijdragen of forken.',
 
   // 404 Page
   '404.title': 'Pagina niet gevonden',

@@ -7,13 +7,11 @@ export default {
   'nav.features': 'المزايا',
   'nav.download': 'تحميل',
   'nav.pricing': 'الأسعار',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': 'إدارة المعرفة الشخصية، ببساطة.',
   'hero.subtitle': 'محلي أولاً. متعدد المنصات. بدون إعداد. تطبيق ملاحظات أنيق يعمل فوراً.',
   'hero.cta.download': 'حمّل مجاناً',
-  'hero.cta.github': 'عرض على GitHub',
 
   // Feature Highlights
   'features.highlights.title': 'لماذا Classic؟',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': 'وصول سريع من أيقونة النظام، دائماً بنقرة واحدة.',
   'more.themes': 'سمات',
   'more.themes.desc': 'الوضع الفاتح والداكن يتبعان تفضيلات نظامك.',
-  'more.opensource': 'مفتوح المصدر',
-  'more.opensource.desc': 'مرخّص بـ MIT. تطوير شفاف تقوده المجتمع.',
 
   // Download CTA
   'cta.title': 'مستعد لتبسيط ملاحظاتك؟',
@@ -70,8 +66,7 @@ export default {
   'cta.button': 'حمّل مجاناً',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': 'صُنع بعقلية البساطة.',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': 'المزايا — Classic',
@@ -87,8 +82,6 @@ export default {
   'features.productivity.desc': 'التقاط سريع عام، لوحة أوامر، اختصارات لوحة المفاتيح، ملاحظات يومية، وتكامل مع أيقونة النظام. كل ميزة مصمّمة لإبقائك في حالة تركيز.',
   'features.crossplatform.title': 'متعدد المنصات',
   'features.crossplatform.desc': 'أداء أصيل على macOS و Windows و Linux. مبني بـ Electron و React لتجربة متسقة في كل مكان.',
-  'features.opensource.title': 'مفتوح المصدر',
-  'features.opensource.desc': 'مرخّص بـ MIT ويقوده المجتمع. تفحّص الكود، ساهم بالمزايا، أو انسخه وخصّصه كما تشاء.',
 
   // Download Page
   'download.page.title': 'تحميل — Classic',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': 'لا حاجة لحساب',
   'pricing.free.f5': 'دعم المجتمع',
   'pricing.free.cta': 'حمّل مجاناً',
-  'pricing.opensource.title': 'لماذا مجاني؟',
-  'pricing.opensource.desc': 'Classic هو برنامج مفتوح المصدر بترخيص MIT. نؤمن بأن أدوات إدارة المعرفة الشخصية يجب أن تكون في متناول الجميع. الكود المصدري متاح على GitHub لأي شخص للاطلاع عليه أو المساهمة فيه أو نسخه.',
 
   // 404 Page
   '404.title': 'الصفحة غير موجودة',

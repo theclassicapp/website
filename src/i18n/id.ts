@@ -7,13 +7,11 @@ export default {
   'nav.features': 'Fitur',
   'nav.download': 'Unduh',
   'nav.pricing': 'Harga',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': 'Manajemen Pengetahuan Pribadi, Disederhanakan.',
   'hero.subtitle': 'Local-first. Lintas platform. Tanpa konfigurasi. Aplikasi catatan indah yang langsung berfungsi.',
   'hero.cta.download': 'Unduh Gratis',
-  'hero.cta.github': 'Lihat di GitHub',
 
   // Feature Highlights
   'features.highlights.title': 'Mengapa Classic?',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': 'Akses cepat dari system tray, selalu satu klik saja.',
   'more.themes': 'Tema',
   'more.themes.desc': 'Mode terang dan gelap mengikuti preferensi sistem Anda.',
-  'more.opensource': 'Open Source',
-  'more.opensource.desc': 'Berlisensi MIT. Pengembangan transparan yang digerakkan komunitas.',
 
   // Download CTA
   'cta.title': 'Siap Menyederhanakan Catatan Anda?',
@@ -70,8 +66,7 @@ export default {
   'cta.button': 'Unduh Gratis',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': 'Dibangun dengan kesederhanaan dalam pikiran.',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': 'Fitur — Classic',
@@ -87,13 +82,11 @@ export default {
   'features.productivity.desc': 'Tangkapan cepat global, palet perintah, pintasan keyboard, catatan harian, dan integrasi system tray. Setiap fitur dirancang untuk menjaga Anda tetap dalam alur.',
   'features.crossplatform.title': 'Lintas Platform',
   'features.crossplatform.desc': 'Performa native di macOS, Windows, dan Linux. Dibangun dengan Electron dan React untuk pengalaman konsisten di mana saja.',
-  'features.opensource.title': 'Open Source',
-  'features.opensource.desc': 'Berlisensi MIT dan digerakkan komunitas. Periksa kodenya, kontribusikan fitur, atau fork untuk Anda sendiri.',
 
   // Download Page
   'download.page.title': 'Unduh — Classic',
   'download.page.heading': 'Unduh Classic',
-  'download.page.subtitle': 'Gratis dan open source. Tersedia untuk macOS, Windows, dan Linux.',
+  'download.page.subtitle': 'Gratis. Tersedia untuk macOS, Windows, dan Linux.',
   'download.macos': 'macOS',
   'download.macos.desc': 'Apple Silicon & Intel',
   'download.macos.req': 'Memerlukan macOS 12 atau lebih baru',
@@ -110,7 +103,7 @@ export default {
   // Pricing Page
   'pricing.page.title': 'Harga — Classic',
   'pricing.page.heading': 'Harga',
-  'pricing.page.subtitle': 'Classic gratis dan open source. Tanpa langganan, tanpa biaya tersembunyi.',
+  'pricing.page.subtitle': 'Classic gratis. Tanpa langganan, tanpa biaya tersembunyi.',
   'pricing.free.title': 'Gratis',
   'pricing.free.price': '$0',
   'pricing.free.period': 'selamanya',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': 'Tidak perlu akun',
   'pricing.free.f5': 'Dukungan komunitas',
   'pricing.free.cta': 'Unduh Gratis',
-  'pricing.opensource.title': 'Mengapa gratis?',
-  'pricing.opensource.desc': 'Classic adalah perangkat lunak open-source berlisensi MIT. Kami percaya alat manajemen pengetahuan pribadi harus dapat diakses oleh semua orang. Kode sumber tersedia di GitHub untuk siapa saja yang ingin memeriksa, berkontribusi, atau melakukan fork.',
 
   // 404 Page
   '404.title': 'Halaman Tidak Ditemukan',

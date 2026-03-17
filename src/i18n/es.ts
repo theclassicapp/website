@@ -7,13 +7,11 @@ export default {
   'nav.features': 'Funciones',
   'nav.download': 'Descargar',
   'nav.pricing': 'Precios',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': 'Gestión del conocimiento personal, simplificada.',
   'hero.subtitle': 'Local primero. Multiplataforma. Sin configuración. Una aplicación de notas elegante que simplemente funciona.',
   'hero.cta.download': 'Descargar gratis',
-  'hero.cta.github': 'Ver en GitHub',
 
   // Feature Highlights
   'features.highlights.title': '¿Por qué Classic?',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': 'Acceso rápido desde la bandeja del sistema, siempre a un clic de distancia.',
   'more.themes': 'Temas',
   'more.themes.desc': 'Modos claro y oscuro que siguen la preferencia de tu sistema.',
-  'more.opensource': 'Open Source',
-  'more.opensource.desc': 'Licencia MIT. Desarrollo transparente e impulsado por la comunidad.',
 
   // Download CTA
   'cta.title': '¿Listo para simplificar tus notas?',
@@ -70,8 +66,7 @@ export default {
   'cta.button': 'Descargar gratis',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': 'Creada con la simplicidad en mente.',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': 'Funciones — Classic',
@@ -87,8 +82,6 @@ export default {
   'features.productivity.desc': 'Captura rápida global, paleta de comandos, atajos de teclado, notas diarias e integración con la bandeja del sistema. Cada función diseñada para mantenerte en el flujo.',
   'features.crossplatform.title': 'Multiplataforma',
   'features.crossplatform.desc': 'Rendimiento nativo en macOS, Windows y Linux. Desarrollada con Electron y React para una experiencia consistente en todas partes.',
-  'features.opensource.title': 'Open Source',
-  'features.opensource.desc': 'Licencia MIT e impulsada por la comunidad. Inspecciona el código, contribuye con funciones o haz un fork para personalizarla a tu gusto.',
 
   // Download Page
   'download.page.title': 'Descargar — Classic',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': 'Sin necesidad de cuenta',
   'pricing.free.f5': 'Soporte de la comunidad',
   'pricing.free.cta': 'Descargar gratis',
-  'pricing.opensource.title': '¿Por qué gratis?',
-  'pricing.opensource.desc': 'Classic es software de código abierto con licencia MIT. Creemos que las herramientas de gestión del conocimiento personal deben ser accesibles para todos. El código fuente está disponible en GitHub para que cualquiera lo inspeccione, contribuya o haga un fork.',
 
   // 404 Page
   '404.title': 'Página no encontrada',

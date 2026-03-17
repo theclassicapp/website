@@ -7,13 +7,11 @@ export default {
   'nav.features': 'Özellikler',
   'nav.download': 'İndir',
   'nav.pricing': 'Fiyatlandırma',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': 'Kişisel Bilgi Yönetimi, Basitleştirilmiş.',
   'hero.subtitle': 'Önce yerel. Çapraz platform. Sıfır yapılandırma. Her şeyin sorunsuz çalıştığı güzel bir not alma uygulaması.',
   'hero.cta.download': 'Ücretsiz İndir',
-  'hero.cta.github': 'GitHub\'da Görüntüle',
 
   // Feature Highlights
   'features.highlights.title': 'Neden Classic?',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': 'Sistem tepsisinden hızlı erişim, her zaman tek tık uzaklıkta.',
   'more.themes': 'Temalar',
   'more.themes.desc': 'Sistem tercihinize göre değişen açık ve koyu modlar.',
-  'more.opensource': 'Açık Kaynak',
-  'more.opensource.desc': 'MIT lisanslı. Şeffaf, topluluk odaklı geliştirme.',
 
   // Download CTA
   'cta.title': 'Notlarınızı Basitleştirmeye Hazır mısınız?',
@@ -70,8 +66,7 @@ export default {
   'cta.button': 'Ücretsiz İndir',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': 'Sadelik düşüncesiyle tasarlandı.',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': 'Özellikler — Classic',
@@ -87,8 +82,6 @@ export default {
   'features.productivity.desc': 'Genel hızlı yakalama, komut paleti, klavye kısayolları, günlük notlar ve sistem tepsisi entegrasyonu. Her özellik sizi akışta tutmak için tasarlandı.',
   'features.crossplatform.title': 'Çapraz Platform',
   'features.crossplatform.desc': 'macOS, Windows ve Linux\'ta yerel performans. Her yerde tutarlı bir deneyim için Electron ve React ile geliştirildi.',
-  'features.opensource.title': 'Açık Kaynak',
-  'features.opensource.desc': 'MIT lisanslı ve topluluk odaklı. Kodu inceleyin, özellikler ekleyin veya kendi sürümünüzü oluşturmak için fork edin.',
 
   // Download Page
   'download.page.title': 'İndir — Classic',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': 'Hesap gerekmez',
   'pricing.free.f5': 'Topluluk desteği',
   'pricing.free.cta': 'Ücretsiz İndir',
-  'pricing.opensource.title': 'Neden ücretsiz?',
-  'pricing.opensource.desc': 'Classic, MIT lisanslı açık kaynak yazılımdır. Kişisel bilgi yönetimi araçlarının herkes için erişilebilir olması gerektiğine inanıyoruz. Kaynak kodu, herkesin incelemesi, katkıda bulunması veya fork etmesi için GitHub\'da mevcuttur.',
 
   // 404 Page
   '404.title': 'Sayfa Bulunamadı',

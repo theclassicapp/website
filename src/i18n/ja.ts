@@ -7,13 +7,11 @@ export default {
   'nav.features': '機能',
   'nav.download': 'ダウンロード',
   'nav.pricing': '料金',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': 'パーソナルナレッジ管理をシンプルに。',
   'hero.subtitle': 'ローカルファースト。クロスプラットフォーム。設定不要。すぐに使える美しいメモアプリ。',
   'hero.cta.download': '無料でダウンロード',
-  'hero.cta.github': 'GitHub で見る',
 
   // Feature Highlights
   'features.highlights.title': 'なぜ Classic？',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': 'システムトレイからワンクリックですぐにアクセス。',
   'more.themes': 'テーマ',
   'more.themes.desc': 'ライト・ダークモード切り替え、システム設定に連動。',
-  'more.opensource': 'オープンソース',
-  'more.opensource.desc': 'MIT ライセンス。透明性のある、コミュニティ主導の開発。',
 
   // Download CTA
   'cta.title': 'ノートをシンプルにする準備はできましたか？',
@@ -70,8 +66,7 @@ export default {
   'cta.button': '無料でダウンロード',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': 'シンプルさを追求して作られました。',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': '機能 — Classic',
@@ -87,13 +82,11 @@ export default {
   'features.productivity.desc': 'グローバルクイックキャプチャ、コマンドパレット、キーボードショートカット、デイリーノート、システムトレイ連携。すべてがフロー状態を維持するための設計。',
   'features.crossplatform.title': 'クロスプラットフォーム',
   'features.crossplatform.desc': 'macOS、Windows、Linux でネイティブパフォーマンスを発揮。Electron と React で構築し、どこでも一貫した体験を提供。',
-  'features.opensource.title': 'オープンソース',
-  'features.opensource.desc': 'MIT ライセンス、コミュニティ主導。コードを確認し、機能を貢献し、fork して自分だけのものにできます。',
 
   // Download Page
   'download.page.title': 'ダウンロード — Classic',
   'download.page.heading': 'Classic をダウンロード',
-  'download.page.subtitle': '無料でオープンソース。macOS、Windows、Linux に対応。',
+  'download.page.subtitle': '無料。macOS、Windows、Linux に対応。',
   'download.macos': 'macOS',
   'download.macos.desc': 'Apple Silicon & Intel',
   'download.macos.req': 'macOS 12 以降が必要',
@@ -110,7 +103,7 @@ export default {
   // Pricing Page
   'pricing.page.title': '料金 — Classic',
   'pricing.page.heading': '料金',
-  'pricing.page.subtitle': 'Classic は無料でオープンソース。サブスクリプションも隠れたコストもありません。',
+  'pricing.page.subtitle': 'Classic は無料。サブスクリプションも隠れたコストもありません。',
   'pricing.free.title': '無料',
   'pricing.free.price': '$0',
   'pricing.free.period': 'ずっと無料',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': 'アカウント登録不要',
   'pricing.free.f5': 'コミュニティサポート',
   'pricing.free.cta': '無料でダウンロード',
-  'pricing.opensource.title': 'なぜ無料なのか？',
-  'pricing.opensource.desc': 'Classic は MIT ライセンスのオープンソースソフトウェアです。パーソナルナレッジ管理ツールはすべての人が利用できるべきだと私たちは考えています。ソースコードは GitHub で公開されており、誰でも閲覧、貢献、fork できます。',
 
   // 404 Page
   '404.title': 'ページが見つかりません',

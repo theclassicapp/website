@@ -7,13 +7,11 @@ export default {
   'nav.features': 'คุณสมบัติ',
   'nav.download': 'ดาวน์โหลด',
   'nav.pricing': 'ราคา',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': 'จัดการความรู้ส่วนตัวอย่างเรียบง่าย',
   'hero.subtitle': 'เก็บข้อมูลในเครื่อง ใช้ได้ทุกแพลตฟอร์ม ไม่ต้องตั้งค่า แอปจดบันทึกที่สวยงามและใช้งานได้ทันที',
   'hero.cta.download': 'ดาวน์โหลดฟรี',
-  'hero.cta.github': 'ดูบน GitHub',
 
   // Feature Highlights
   'features.highlights.title': 'ทำไมต้อง Classic?',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': 'เข้าถึงได้อย่างรวดเร็วจากถาดระบบ แค่คลิกเดียว',
   'more.themes': 'ธีม',
   'more.themes.desc': 'โหมดสว่างและมืดที่เปลี่ยนตามการตั้งค่าระบบของคุณ',
-  'more.opensource': 'โอเพนซอร์ส',
-  'more.opensource.desc': 'สัญญาอนุญาต MIT พัฒนาอย่างโปร่งใสโดยชุมชน',
 
   // Download CTA
   'cta.title': 'พร้อมที่จะทำให้การจดบันทึกง่ายขึ้นหรือยัง?',
@@ -70,8 +66,7 @@ export default {
   'cta.button': 'ดาวน์โหลดฟรี',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': 'สร้างขึ้นด้วยแนวคิดแห่งความเรียบง่าย',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': 'คุณสมบัติ — Classic',
@@ -87,8 +82,6 @@ export default {
   'features.productivity.desc': 'จดบันทึกเร็วทั่วระบบ แถบคำสั่ง ปุ่มลัด บันทึกประจำวัน และการทำงานร่วมกับถาดระบบ ทุกคุณสมบัติออกแบบมาเพื่อให้คุณโฟกัสกับงาน',
   'features.crossplatform.title': 'ใช้ได้ทุกแพลตฟอร์ม',
   'features.crossplatform.desc': 'ประสิทธิภาพระดับเนทีฟบน macOS, Windows และ Linux สร้างด้วย Electron และ React เพื่อประสบการณ์ที่สม่ำเสมอทุกที่',
-  'features.opensource.title': 'โอเพนซอร์ส',
-  'features.opensource.desc': 'สัญญาอนุญาต MIT และขับเคลื่อนโดยชุมชน ตรวจสอบโค้ด มีส่วนร่วมพัฒนาคุณสมบัติ หรือ fork ไปปรับแต่งเอง',
 
   // Download Page
   'download.page.title': 'ดาวน์โหลด — Classic',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': 'ไม่ต้องมีบัญชี',
   'pricing.free.f5': 'การสนับสนุนจากชุมชน',
   'pricing.free.cta': 'ดาวน์โหลดฟรี',
-  'pricing.opensource.title': 'ทำไมถึงฟรี?',
-  'pricing.opensource.desc': 'Classic เป็นซอฟต์แวร์โอเพนซอร์สภายใต้สัญญาอนุญาต MIT เราเชื่อว่าเครื่องมือจัดการความรู้ส่วนตัวควรเข้าถึงได้สำหรับทุกคน ซอร์สโค้ดเปิดให้ดูบน GitHub สำหรับทุกคนที่จะตรวจสอบ มีส่วนร่วม หรือ fork ได้',
 
   // 404 Page
   '404.title': 'ไม่พบหน้า',

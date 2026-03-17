@@ -7,13 +7,11 @@ export default {
   'nav.features': '功能',
   'nav.download': '下載',
   'nav.pricing': '定價',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': '個人知識管理，化繁為簡。',
   'hero.subtitle': '本地優先，跨平台，零設定。一款開箱即用的精美筆記應用。',
   'hero.cta.download': '免費下載',
-  'hero.cta.github': '在 GitHub 上查看',
 
   // Feature Highlights
   'features.highlights.title': '為什麼選擇 Classic？',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': '從系統匣快速存取，一鍵即達。',
   'more.themes': '佈景主題',
   'more.themes.desc': '明亮與深色模式，跟隨系統偏好設定。',
-  'more.opensource': '開放原始碼',
-  'more.opensource.desc': 'MIT 授權，透明且社群驅動。',
 
   // Download CTA
   'cta.title': '準備好簡化你的筆記了嗎？',
@@ -70,8 +66,7 @@ export default {
   'cta.button': '免費下載',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': '以簡潔為理念而打造。',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': '功能 — Classic',
@@ -87,8 +82,6 @@ export default {
   'features.productivity.desc': '全域快速捕捉、命令面板、快捷鍵、每日筆記和系統匣整合。每個功能都為保持你的心流而設計。',
   'features.crossplatform.title': '跨平台',
   'features.crossplatform.desc': '在 macOS、Windows 和 Linux 上享有原生效能。使用 Electron 和 React 建構，提供一致的體驗。',
-  'features.opensource.title': '開放原始碼',
-  'features.opensource.desc': 'MIT 授權，社群驅動。查看原始碼，貢獻功能，或 fork 來打造你自己的版本。',
 
   // Download Page
   'download.page.title': '下載 — Classic',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': '無需註冊帳號',
   'pricing.free.f5': '社群支援',
   'pricing.free.cta': '免費下載',
-  'pricing.opensource.title': '為什麼免費？',
-  'pricing.opensource.desc': 'Classic 是 MIT 授權的開放原始碼軟體。我們相信個人知識管理工具應該讓每個人都能使用。原始碼在 GitHub 上公開，任何人都可以查看、貢獻或 fork。',
 
   // 404 Page
   '404.title': '找不到頁面',

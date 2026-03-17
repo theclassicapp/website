@@ -7,13 +7,11 @@ export default {
   'nav.features': 'Features',
   'nav.download': 'Download',
   'nav.pricing': 'Pricing',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': 'Personal Knowledge Management, Simplified.',
   'hero.subtitle': 'Local-first. Cross-platform. Zero config. A beautiful note-taking app that just works.',
   'hero.cta.download': 'Download for Free',
-  'hero.cta.github': 'View on GitHub',
 
   // Feature Highlights
   'features.highlights.title': 'Why Classic?',
@@ -108,6 +106,9 @@ export default {
   'pricing.free.f4': 'No account required',
   'pricing.free.f5': 'Community support',
   'pricing.free.cta': 'Download for Free',
+
+  // Footer
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // 404 Page
   '404.title': 'Page Not Found',

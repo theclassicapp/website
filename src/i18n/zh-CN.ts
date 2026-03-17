@@ -7,13 +7,11 @@ export default {
   'nav.features': '功能',
   'nav.download': '下载',
   'nav.pricing': '定价',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': '个人知识管理，化繁为简。',
   'hero.subtitle': '本地优先，跨平台，零配置。一款开箱即用的精美笔记应用。',
   'hero.cta.download': '免费下载',
-  'hero.cta.github': '查看源代码',
 
   // Feature Highlights
   'features.highlights.title': '为什么选择 Classic？',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': '系统托盘快速访问，一键即达。',
   'more.themes': '主题',
   'more.themes.desc': '明暗主题切换，跟随系统偏好。',
-  'more.opensource': '开源',
-  'more.opensource.desc': 'MIT 许可证，透明且社区驱动。',
 
   // Download CTA
   'cta.title': '准备好简化你的笔记了吗？',
@@ -70,8 +66,7 @@ export default {
   'cta.button': '免费下载',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': '以简洁为理念而构建。',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': '功能 — Classic',
@@ -87,13 +82,11 @@ export default {
   'features.productivity.desc': '全局快速捕捉、命令面板、快捷键、每日笔记和系统托盘集成。每个功能都为保持你的心流而设计。',
   'features.crossplatform.title': '跨平台',
   'features.crossplatform.desc': '在 macOS、Windows 和 Linux 上原生性能。使用 Electron 和 React 构建，提供一致的体验。',
-  'features.opensource.title': '开源',
-  'features.opensource.desc': 'MIT 许可证，社区驱动。查看源代码，贡献功能，或 fork 它来定制。',
 
   // Download Page
   'download.page.title': '下载 — Classic',
   'download.page.heading': '下载 Classic',
-  'download.page.subtitle': '免费且开源。支持 macOS、Windows 和 Linux。',
+  'download.page.subtitle': '免费。支持 macOS、Windows 和 Linux。',
   'download.macos': 'macOS',
   'download.macos.desc': 'Apple Silicon & Intel',
   'download.macos.req': '需要 macOS 12 或更高版本',
@@ -110,7 +103,7 @@ export default {
   // Pricing Page
   'pricing.page.title': '定价 — Classic',
   'pricing.page.heading': '定价',
-  'pricing.page.subtitle': 'Classic 免费且开源。没有订阅，没有隐藏费用。',
+  'pricing.page.subtitle': 'Classic 免费。没有订阅，没有隐藏费用。',
   'pricing.free.title': '免费',
   'pricing.free.price': '¥0',
   'pricing.free.period': '永久免费',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': '无需注册账号',
   'pricing.free.f5': '社区支持',
   'pricing.free.cta': '免费下载',
-  'pricing.opensource.title': '为什么免费？',
-  'pricing.opensource.desc': 'Classic 是 MIT 许可证的开源软件。我们相信个人知识管理工具应该让每个人都能使用。源代码在 GitHub 上公开，任何人都可以查看、贡献或 fork。',
 
   // 404 Page
   '404.title': '页面未找到',

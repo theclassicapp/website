@@ -7,13 +7,11 @@ export default {
   'nav.features': 'Tính năng',
   'nav.download': 'Tải xuống',
   'nav.pricing': 'Giá cả',
-  'nav.github': 'GitHub',
 
   // Hero
   'hero.title': 'Quản Lý Kiến Thức Cá Nhân, Đơn Giản Hóa.',
   'hero.subtitle': 'Ưu tiên cục bộ. Đa nền tảng. Không cần cấu hình. Ứng dụng ghi chú đẹp mắt hoạt động ngay lập tức.',
   'hero.cta.download': 'Tải Miễn Phí',
-  'hero.cta.github': 'Xem trên GitHub',
 
   // Feature Highlights
   'features.highlights.title': 'Tại sao chọn Classic?',
@@ -61,8 +59,6 @@ export default {
   'more.tray.desc': 'Truy cập nhanh từ khay hệ thống, luôn chỉ cách một cú nhấp.',
   'more.themes': 'Giao Diện',
   'more.themes.desc': 'Chế độ sáng và tối tự động theo tùy chọn hệ thống của bạn.',
-  'more.opensource': 'Mã Nguồn Mở',
-  'more.opensource.desc': 'Giấy phép MIT. Phát triển minh bạch, do cộng đồng dẫn dắt.',
 
   // Download CTA
   'cta.title': 'Sẵn Sàng Đơn Giản Hóa Ghi Chú Của Bạn?',
@@ -70,8 +66,7 @@ export default {
   'cta.button': 'Tải Miễn Phí',
 
   // Footer
-  'footer.copyright': '© 2025 Classic. MIT License.',
-  'footer.built': 'Được xây dựng với tinh thần đơn giản.',
+  'footer.copyright': '© 2025 Classic. All rights reserved.',
 
   // Features Page
   'features.page.title': 'Tính năng — Classic',
@@ -87,13 +82,11 @@ export default {
   'features.productivity.desc': 'Ghi chú nhanh toàn cục, bảng lệnh, phím tắt, ghi chú hàng ngày và tích hợp khay hệ thống. Mọi tính năng được thiết kế để giữ bạn trong trạng thái tập trung.',
   'features.crossplatform.title': 'Đa Nền Tảng',
   'features.crossplatform.desc': 'Hiệu suất gốc trên macOS, Windows và Linux. Được xây dựng với Electron và React cho trải nghiệm nhất quán ở mọi nơi.',
-  'features.opensource.title': 'Mã Nguồn Mở',
-  'features.opensource.desc': 'Giấy phép MIT và do cộng đồng dẫn dắt. Kiểm tra mã nguồn, đóng góp tính năng hoặc fork để tùy biến theo cách của bạn.',
 
   // Download Page
   'download.page.title': 'Tải xuống — Classic',
   'download.page.heading': 'Tải Classic',
-  'download.page.subtitle': 'Miễn phí và mã nguồn mở. Có sẵn cho macOS, Windows và Linux.',
+  'download.page.subtitle': 'Miễn phí. Có sẵn cho macOS, Windows và Linux.',
   'download.macos': 'macOS',
   'download.macos.desc': 'Apple Silicon & Intel',
   'download.macos.req': 'Yêu cầu macOS 12 trở lên',
@@ -110,7 +103,7 @@ export default {
   // Pricing Page
   'pricing.page.title': 'Giá cả — Classic',
   'pricing.page.heading': 'Giá cả',
-  'pricing.page.subtitle': 'Classic miễn phí và mã nguồn mở. Không đăng ký, không chi phí ẩn.',
+  'pricing.page.subtitle': 'Classic miễn phí. Không đăng ký, không chi phí ẩn.',
   'pricing.free.title': 'Miễn phí',
   'pricing.free.price': '$0',
   'pricing.free.period': 'mãi mãi',
@@ -121,8 +114,6 @@ export default {
   'pricing.free.f4': 'Không cần tài khoản',
   'pricing.free.f5': 'Hỗ trợ cộng đồng',
   'pricing.free.cta': 'Tải Miễn Phí',
-  'pricing.opensource.title': 'Tại sao miễn phí?',
-  'pricing.opensource.desc': 'Classic là phần mềm mã nguồn mở theo giấy phép MIT. Chúng tôi tin rằng công cụ quản lý kiến thức cá nhân nên dành cho tất cả mọi người. Mã nguồn có sẵn trên GitHub để bất kỳ ai cũng có thể xem, đóng góp hoặc fork.',
 
   // 404 Page
   '404.title': 'Không Tìm Thấy Trang',
