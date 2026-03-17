@@ -4,7 +4,7 @@ import BaseLayout from '@/components/layout/BaseLayout.astro';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Button from '@/components/shared/Button.astro';
-import { t, getLocale, getLocalePath } from '@/i18n';
+import { t, getLocale, getLocalePath, withBase } from '@/i18n';
 
 const locale = getLocale(Astro.currentLocale);
 const base = import.meta.env.BASE_URL;
@@ -52,7 +52,7 @@ const freeFeatures = ['f1', 'f2', 'f3', 'f4', 'f5'];
           </ul>
 
           <div class="mt-8">
-            <Button href={`${base}${getLocalePath(locale, '/download')}`} variant="primary" size="lg" class="w-full">
+            <Button href={withBase(base, getLocalePath(locale, '/download'))} variant="primary" size="lg" class="w-full">
               {t(locale, 'pricing.free.cta')}
             </Button>
           </div>

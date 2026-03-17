@@ -4,7 +4,7 @@ import BaseLayout from '@/components/layout/BaseLayout.astro';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Button from '@/components/shared/Button.astro';
-import { t, getLocale } from '@/i18n';
+import { t, getLocale, withBase } from '@/i18n';
 
 const locale = getLocale(Astro.currentLocale);
 const base = import.meta.env.BASE_URL;
@@ -22,7 +22,7 @@ const base = import.meta.env.BASE_URL;
         {t(locale, '404.desc')}
       </p>
       <div class="mt-8">
-        <Button href={`${base}/`} variant="primary">
+        <Button href={withBase(base, '/')} variant="primary">
           {t(locale, '404.back')}
         </Button>
       </div>

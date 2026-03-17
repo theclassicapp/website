@@ -27,10 +27,11 @@ const pathWithoutLocale = getPathWithoutLocale(currentPath);
 
 function getLocalizedPath(targetLocale: Locale): string {
   const path = pathWithoutLocale === '/' ? '/' : pathWithoutLocale;
+  const normalizedBase = base === '/' ? '' : base;
   if (targetLocale === 'en') {
-    return `${base}${path}`;
+    return `${normalizedBase}${path}`;
   }
-  return `${base}/${targetLocale}${path === '/' ? '' : path}`;
+  return `${normalizedBase}/${targetLocale}${path === '/' ? '' : path}`;
 }
 
 // Short display label for compact header

@@ -67,11 +67,17 @@ export function getLocale(currentLocale: string | undefined): Locale {
   return defaultLocale;
 }
 
-// Get localized path
+// Get localized path (without base)
 export function getLocalePath(locale: Locale, path: string): string {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   if (locale === defaultLocale) {
     return cleanPath;
   }
   return `/${locale}${cleanPath}`;
+}
+
+// Combine base URL with path, handling the case when base is '/'
+export function withBase(base: string, path: string): string {
+  const normalizedBase = base === '/' ? '' : base;
+  return `${normalizedBase}${path}`;
 }
