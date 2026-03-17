@@ -6,7 +6,45 @@ import Footer from '@/components/layout/Footer.astro';
 import { withBase } from '@/i18n';
 
 const base = import.meta.env.BASE_URL;
-const { currentSlug } = Astro.props;
+const { currentSlug, locale = 'en' } = Astro.props;
+
+// Helper to get help path (always links to English docs since translations not available)
+function getHelpPath(slug: string): string {
+  return withBase(base, `/help/${slug}`);
+}
+
+function getHelpIndexPath(): string {
+  if (locale === 'en') {
+    return withBase(base, '/help');
+  }
+  return withBase(base, `/${locale}/help`);
+}
+
+// UI Text translations
+const uiText: Record<string, { backToHelp: string; previous: string; next: string }> = {
+  en: { backToHelp: 'Back to Help Center', previous: 'Previous', next: 'Next' },
+  'zh-CN': { backToHelp: '返回帮助中心', previous: '上一篇', next: '下一篇' },
+  'zh-TW': { backToHelp: '返回說明中心', previous: '上一篇', next: '下一篇' },
+  ja: { backToHelp: 'ヘルプセンターに戻る', previous: '前へ', next: '次へ' },
+  ko: { backToHelp: '도움말 센터로 돌아가기', previous: '이전', next: '다음' },
+  de: { backToHelp: 'Zurück zum Hilfezentrum', previous: 'Vorherige', next: 'Nächste' },
+  es: { backToHelp: 'Volver al Centro de Ayuda', previous: 'Anterior', next: 'Siguiente' },
+  fr: { backToHelp: "Retour au Centre d'Aide", previous: 'Précédent', next: 'Suivant' },
+  it: { backToHelp: 'Torna al Centro Assistenza', previous: 'Precedente', next: 'Successivo' },
+  pt: { backToHelp: 'Voltar ao Centro de Ajuda', previous: 'Anterior', next: 'Próximo' },
+  ru: { backToHelp: 'Вернуться в Справочный центр', previous: 'Назад', next: 'Далее' },
+  ar: { backToHelp: 'العودة إلى مركز المساعدة', previous: 'السابق', next: 'التالي' },
+  he: { backToHelp: 'חזרה למרכז העזרה', previous: 'הקודם', next: 'הבא' },
+  hi: { backToHelp: 'सहायता केंद्र पर वापस जाएं', previous: 'पिछला', next: 'अगला' },
+  id: { backToHelp: 'Kembali ke Pusat Bantuan', previous: 'Sebelumnya', next: 'Selanjutnya' },
+  nl: { backToHelp: 'Terug naar Helpcentrum', previous: 'Vorige', next: 'Volgende' },
+  pl: { backToHelp: 'Powrót do Centrum Pomocy', previous: 'Poprzedni', next: 'Następny' },
+  th: { backToHelp: 'กลับไปยังศูนย์ช่วยเหลือ', previous: 'ก่อนหน้า', next: 'ถัดไป' },
+  tr: { backToHelp: 'Yardım Merkezine Dön', previous: 'Önceki', next: 'Sonraki' },
+  vi: { backToHelp: 'Quay lại Trung tâm Trợ giúp', previous: 'Trước', next: 'Tiếp' },
+};
+
+const t = uiText[locale] || uiText['en'];
 
 // Navigation for help articles
 const allArticles = [
@@ -68,13 +106,13 @@ const description = '';
           <nav class="sticky top-8 space-y-6">
             <!-- Back to Help Center -->
             <a
-              href={withBase(base, '/help')}
+              href={getHelpIndexPath()}
               class="flex items-center gap-2 text-sm font-medium text-foreground-muted transition-colors hover:text-foreground"
             >
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
-              Back to Help Center
+              {t.backToHelp}
             </a>
 
             <!-- Category Navigation -->
@@ -89,7 +127,7 @@ const description = '';
                     return (
                       <li>
                         <a
-                          href={withBase(base, `/help/${article.slug}`)}
+                          href={getHelpPath(article.slug)}
                           class:list={[
                             'block rounded-lg px-3 py-2 text-sm transition-all duration-200',
                             isActive
@@ -112,7 +150,7 @@ const description = '';
         <div class="min-w-0">
           <!-- Breadcrumb -->
           <nav class="mb-6 flex items-center gap-2 text-sm">
-            <a href={withBase(base, '/help')} class="text-foreground-muted hover:text-foreground">
+            <a href={getHelpIndexPath()} class="text-foreground-muted hover:text-foreground">
               Help
             </a>
             <svg class="h-4 w-4 text-foreground-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,14 +186,14 @@ const description = '';
           <nav class="mt-8 flex items-center justify-between gap-4 border-t border-border pt-8">
             {prevArticle ? (
               <a
-                href={withBase(base, `/help/${prevArticle.slug}`)}
+                href={getHelpPath(prevArticle.slug)}
                 class="group flex flex-1 items-center gap-3 rounded-xl border border-border bg-surface p-4 transition-all hover:border-primary hover:shadow-md"
               >
                 <svg class="h-5 w-5 text-foreground-muted transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>
                 <div class="text-left">
-                  <span class="block text-xs text-foreground-muted">Previous</span>
+                  <span class="block text-xs text-foreground-muted">{t.previous}</span>
                   <span class="font-medium text-foreground">{prevArticle.title}</span>
                 </div>
               </a>
@@ -165,11 +203,11 @@ const description = '';
 
             {nextArticle ? (
               <a
-                href={withBase(base, `/help/${nextArticle.slug}`)}
+                href={getHelpPath(nextArticle.slug)}
                 class="group flex flex-1 items-center justify-end gap-3 rounded-xl border border-border bg-surface p-4 text-right transition-all hover:border-primary hover:shadow-md"
               >
                 <div>
-                  <span class="block text-xs text-foreground-muted">Next</span>
+                  <span class="block text-xs text-foreground-muted">{t.next}</span>
                   <span class="font-medium text-foreground">{nextArticle.title}</span>
                 </div>
                 <svg class="h-5 w-5 text-foreground-muted transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

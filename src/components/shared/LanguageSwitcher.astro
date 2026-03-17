@@ -26,7 +26,18 @@ function getPathWithoutLocale(path: string): string {
 const pathWithoutLocale = getPathWithoutLocale(currentPath);
 
 function getLocalizedPath(targetLocale: Locale): string {
-  const path = pathWithoutLocale === '/' ? '/' : pathWithoutLocale;
+  // For help article pages (e.g., /help/getting-started), redirect to the help center index
+  // since translated help articles are not available
+  const isHelpArticle = pathWithoutLocale.startsWith('/help/') && pathWithoutLocale !== '/help';
+
+  let path: string;
+  if (isHelpArticle) {
+    // Redirect to help center index for the target locale
+    path = '/help';
+  } else {
+    path = pathWithoutLocale === '/' ? '/' : pathWithoutLocale;
+  }
+
   const normalizedBase = base === '/' ? '' : base;
   if (targetLocale === 'en') {
     return `${normalizedBase}${path}`;
