@@ -45,6 +45,9 @@ jobs:
             --timeout 30
             --accept 100..=103,200..=299,429
             --exclude 'favicon.ico'
+            --exclude '/404$'
+            --exclude 'github.com/theclassicapp/classic/releases'
+            --exclude 'theclassic.app/404'
             'dist/**/*.html'
           fail: true
           output: ./lychee-report.md
