@@ -6,30 +6,140 @@ import Footer from '@/components/layout/Footer.astro';
 import { withBase } from '@/i18n';
 
 const base = import.meta.env.BASE_URL;
+
+const helpCategories = [
+  {
+    title: 'Bắt đầu',
+    description: 'Tìm hiểu những điều cơ bản về Classic và bắt đầu nhanh chóng.',
+    articles: [
+      { slug: 'getting-started', title: 'Hướng dẫn bắt đầu nhanh' },
+      { slug: 'interface', title: 'Hiểu giao diện' },
+      { slug: 'first-note', title: 'Tạo ghi chú đầu tiên' },
+    ],
+  },
+  {
+    title: 'Trình soạn thảo và viết',
+    description: 'Làm chủ trình soạn thảo mạnh mẽ và tất cả các tính năng.',
+    articles: [
+      { slug: 'markdown', title: 'Tham khảo Markdown' },
+      { slug: 'slash-commands', title: 'Lệnh Slash' },
+      { slug: 'diagrams', title: 'Sơ đồ Mermaid' },
+      { slug: 'math', title: 'Phương trình toán học' },
+      { slug: 'code-blocks', title: 'Khối mã' },
+    ],
+  },
+  {
+    title: 'Tổ chức',
+    description: 'Sắp xếp ghi chú với thẻ, ghi chú con và backlink.',
+    articles: [
+      { slug: 'subnotes', title: 'Ghi chú con' },
+      { slug: 'tags', title: 'Làm việc với thẻ' },
+      { slug: 'backlinks', title: 'Backlink' },
+      { slug: 'daily-notes', title: 'Ghi chú hàng ngày' },
+      { slug: 'search', title: 'Tìm kiếm' },
+    ],
+  },
+  {
+    title: 'Năng suất',
+    description: 'Tăng năng suất với phím tắt và tự động hóa.',
+    articles: [
+      { slug: 'quick-capture', title: 'Chụp nhanh' },
+      { slug: 'command-palette', title: 'Bảng lệnh' },
+      { slug: 'keyboard-shortcuts', title: 'Phím tắt bàn phím' },
+      { slug: 'system-tray', title: 'Khay hệ thống' },
+    ],
+  },
+  {
+    title: 'Dữ liệu và quyền riêng tư',
+    description: 'Hiểu cách Classic xử lý dữ liệu của bạn.',
+    articles: [
+      { slug: 'local-first', title: 'Kiến trúc Local-First' },
+      { slug: 'backup', title: 'Sao lưu và khôi phục' },
+      { slug: 'version-history', title: 'Lịch sử phiên bản' },
+      { slug: 'import-export', title: 'Nhập và xuất' },
+    ],
+  },
+  {
+    title: 'Tùy chỉnh',
+    description: 'Tùy chỉnh Classic theo quy trình làm việc của bạn.',
+    articles: [
+      { slug: 'themes', title: 'Chủ đề và giao diện' },
+      { slug: 'languages', title: 'Cài đặt ngôn ngữ' },
+      { slug: 'settings', title: 'Tổng quan cài đặt' },
+    ],
+  },
+];
 ---
 
-<BaseLayout title="Trung tâm Trợ giúp — Classic Help">
+<BaseLayout title="Trung tâm Trợ giúp — Classic">
   <Header />
-  <main class="min-h-screen bg-surface-dim">
-    <div class="mx-auto max-w-3xl px-6 py-24">
-      <div class="text-center">
+  <main>
+    <section class="py-24 text-center">
+      <div class="mx-auto max-w-6xl px-6">
         <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           Trung tâm Trợ giúp
         </h1>
-        <p class="mt-6 text-lg text-foreground-muted">
-          Tài liệu trợ giúp hiện chỉ có bằng tiếng Anh.
+        <p class="mt-4 text-lg text-foreground-muted">
+          Tất cả những gì bạn cần biết về Classic. Tìm hướng dẫn, hướng dẫn và câu trả lời cho các câu hỏi thường gặp.
         </p>
-        <a
-          href={withBase(base, '/help')}
-          class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
-        >
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-          </svg>
-          Xem tài liệu tiếng Anh
-        </a>
       </div>
-    </div>
+    </section>
+
+    <section class="bg-surface-dim py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {helpCategories.map((category) => (
+            <div class="rounded-xl border border-border bg-surface p-6">
+              <h3 class="text-lg font-semibold text-foreground">
+                {category.title}
+              </h3>
+              <p class="mt-2 text-sm text-foreground-muted">
+                {category.description}
+              </p>
+              <ul class="mt-4 space-y-2">
+                {category.articles.map((article) => (
+                  <li>
+                    <a
+                      href={withBase(base, `/vi/help/${article.slug}`)}
+                      class="flex items-center gap-2 text-sm text-primary hover:underline"
+                    >
+                      <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      {article.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <h2 class="text-2xl font-bold text-foreground">Bài viết phổ biến</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href={withBase(base, '/vi/help/getting-started')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Hướng dẫn bắt đầu nhanh</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Bắt đầu với Classic trong 5 phút.</p>
+          </a>
+          <a href={withBase(base, '/vi/help/markdown')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Tham khảo Markdown</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Hướng dẫn đầy đủ về cú pháp Markdown.</p>
+          </a>
+          <a href={withBase(base, '/vi/help/keyboard-shortcuts')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Phím tắt bàn phím</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Làm việc nhanh hơn với phím tắt.</p>
+          </a>
+          <a href={withBase(base, '/vi/help/local-first')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Kiến trúc Local-First</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Cách Classic bảo vệ quyền riêng tư dữ liệu của bạn.</p>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>

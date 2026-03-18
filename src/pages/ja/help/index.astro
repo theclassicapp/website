@@ -6,30 +6,154 @@ import Footer from '@/components/layout/Footer.astro';
 import { withBase } from '@/i18n';
 
 const base = import.meta.env.BASE_URL;
+
+const helpCategories = [
+  {
+    title: 'はじめに',
+    description: 'Classicの基本を学び、すぐに使いこなせるようになりましょう。',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+    articles: [
+      { slug: 'getting-started', title: 'クイックスタートガイド' },
+      { slug: 'interface', title: 'インターフェースの理解' },
+      { slug: 'first-note', title: '最初のノートを作成する' },
+    ],
+  },
+  {
+    title: 'エディタと執筆',
+    description: '強力なエディタとそのすべての機能をマスターしましょう。',
+    icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
+    articles: [
+      { slug: 'markdown', title: 'Markdownリファレンス' },
+      { slug: 'slash-commands', title: 'スラッシュコマンド' },
+      { slug: 'diagrams', title: 'Mermaidダイアグラム' },
+      { slug: 'math', title: 'KaTeXで数式を書く' },
+      { slug: 'code-blocks', title: 'コードブロックとシンタックスハイライト' },
+    ],
+  },
+  {
+    title: '整理',
+    description: 'タグ、サブノート、バックリンクでノートを整理しましょう。',
+    icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+    articles: [
+      { slug: 'subnotes', title: 'サブノートと階層構造' },
+      { slug: 'tags', title: 'タグの使い方' },
+      { slug: 'backlinks', title: 'バックリンクとつながり' },
+      { slug: 'daily-notes', title: 'デイリーノート' },
+      { slug: 'search', title: '検索と見つける' },
+    ],
+  },
+  {
+    title: '生産性',
+    description: 'ショートカットと自動化で生産性を向上させましょう。',
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    articles: [
+      { slug: 'quick-capture', title: 'クイックキャプチャ' },
+      { slug: 'command-palette', title: 'コマンドパレット' },
+      { slug: 'keyboard-shortcuts', title: 'キーボードショートカット' },
+      { slug: 'system-tray', title: 'システムトレイ' },
+    ],
+  },
+  {
+    title: 'データとプライバシー',
+    description: 'Classicがデータをどのように扱うか理解しましょう。',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    articles: [
+      { slug: 'local-first', title: 'ローカルファーストアーキテクチャ' },
+      { slug: 'backup', title: 'バックアップと復元' },
+      { slug: 'version-history', title: 'バージョン履歴' },
+      { slug: 'import-export', title: 'インポートとエクスポート' },
+    ],
+  },
+  {
+    title: 'カスタマイズ',
+    description: 'Classicをあなたのワークフローに合わせてカスタマイズしましょう。',
+    icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
+    articles: [
+      { slug: 'themes', title: 'テーマと外観' },
+      { slug: 'languages', title: '言語設定' },
+      { slug: 'settings', title: '設定の概要' },
+    ],
+  },
+];
 ---
 
 <BaseLayout title="ヘルプセンター — Classic Help">
   <Header />
-  <main class="min-h-screen bg-surface-dim">
-    <div class="mx-auto max-w-3xl px-6 py-24">
-      <div class="text-center">
+  <main>
+    <!-- Page Header -->
+    <section class="py-24 text-center">
+      <div class="mx-auto max-w-6xl px-6">
         <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           ヘルプセンター
         </h1>
-        <p class="mt-6 text-lg text-foreground-muted">
-          ヘルプドキュメントは現在英語版のみご利用いただけます。
+        <p class="mt-4 text-lg text-foreground-muted">
+          Classicについて知っておくべきことすべて。ガイド、チュートリアル、よくある質問への回答をご覧ください。
         </p>
-        <a
-          href={withBase(base, '/help')}
-          class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
-        >
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-          </svg>
-          英語版ドキュメントを見る
-        </a>
       </div>
-    </div>
+    </section>
+
+    <!-- Help Categories -->
+    <section class="bg-surface-dim py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {helpCategories.map((category) => (
+            <div class="rounded-xl border border-border bg-surface p-6">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={category.icon} />
+                </svg>
+              </div>
+              <h3 class="mt-4 text-lg font-semibold text-foreground">
+                {category.title}
+              </h3>
+              <p class="mt-2 text-sm text-foreground-muted">
+                {category.description}
+              </p>
+              <ul class="mt-4 space-y-2">
+                {category.articles.map((article) => (
+                  <li>
+                    <a
+                      href={withBase(base, `/ja/help/${article.slug}`)}
+                      class="flex items-center gap-2 text-sm text-primary hover:underline"
+                    >
+                      <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      {article.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <h2 class="text-2xl font-bold text-foreground">人気の記事</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href={withBase(base, '/ja/help/getting-started')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">クイックスタートガイド</h3>
+            <p class="mt-1 text-sm text-foreground-muted">5分でClassicを始めましょう。</p>
+          </a>
+          <a href={withBase(base, '/ja/help/markdown')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Markdownリファレンス</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Markdown構文の完全ガイド。</p>
+          </a>
+          <a href={withBase(base, '/ja/help/keyboard-shortcuts')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">キーボードショートカット</h3>
+            <p class="mt-1 text-sm text-foreground-muted">ショートカットでより速く作業。</p>
+          </a>
+          <a href={withBase(base, '/ja/help/local-first')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">ローカルファーストアーキテクチャ</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Classicがデータをプライベートに保つ方法。</p>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>

@@ -6,30 +6,140 @@ import Footer from '@/components/layout/Footer.astro';
 import { withBase } from '@/i18n';
 
 const base = import.meta.env.BASE_URL;
+
+const helpCategories = [
+  {
+    title: 'Начало работы',
+    description: 'Изучите основы Classic и начните быстро.',
+    articles: [
+      { slug: 'getting-started', title: 'Краткое руководство' },
+      { slug: 'interface', title: 'Понимание интерфейса' },
+      { slug: 'first-note', title: 'Создание первой заметки' },
+    ],
+  },
+  {
+    title: 'Редактор и написание',
+    description: 'Освойте мощный редактор и все его функции.',
+    articles: [
+      { slug: 'markdown', title: 'Справочник Markdown' },
+      { slug: 'slash-commands', title: 'Slash-команды' },
+      { slug: 'diagrams', title: 'Диаграммы Mermaid' },
+      { slug: 'math', title: 'Математические уравнения' },
+      { slug: 'code-blocks', title: 'Блоки кода' },
+    ],
+  },
+  {
+    title: 'Организация',
+    description: 'Организуйте заметки с помощью тегов, подзаметок и обратных ссылок.',
+    articles: [
+      { slug: 'subnotes', title: 'Подзаметки' },
+      { slug: 'tags', title: 'Работа с тегами' },
+      { slug: 'backlinks', title: 'Обратные ссылки' },
+      { slug: 'daily-notes', title: 'Ежедневные заметки' },
+      { slug: 'search', title: 'Поиск' },
+    ],
+  },
+  {
+    title: 'Производительность',
+    description: 'Повысьте продуктивность с помощью горячих клавиш и автоматизации.',
+    articles: [
+      { slug: 'quick-capture', title: 'Быстрый захват' },
+      { slug: 'command-palette', title: 'Палитра команд' },
+      { slug: 'keyboard-shortcuts', title: 'Горячие клавиши' },
+      { slug: 'system-tray', title: 'Системный трей' },
+    ],
+  },
+  {
+    title: 'Данные и конфиденциальность',
+    description: 'Поймите, как Classic обрабатывает ваши данные.',
+    articles: [
+      { slug: 'local-first', title: 'Архитектура Local-First' },
+      { slug: 'backup', title: 'Резервное копирование' },
+      { slug: 'version-history', title: 'История версий' },
+      { slug: 'import-export', title: 'Импорт и экспорт' },
+    ],
+  },
+  {
+    title: 'Настройка',
+    description: 'Настройте Classic под свой рабочий процесс.',
+    articles: [
+      { slug: 'themes', title: 'Темы и внешний вид' },
+      { slug: 'languages', title: 'Языковые настройки' },
+      { slug: 'settings', title: 'Обзор настроек' },
+    ],
+  },
+];
 ---
 
-<BaseLayout title="Справочный центр — Classic Help">
+<BaseLayout title="Справочный центр — Classic">
   <Header />
-  <main class="min-h-screen bg-surface-dim">
-    <div class="mx-auto max-w-3xl px-6 py-24">
-      <div class="text-center">
+  <main>
+    <section class="py-24 text-center">
+      <div class="mx-auto max-w-6xl px-6">
         <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           Справочный центр
         </h1>
-        <p class="mt-6 text-lg text-foreground-muted">
-          Справочная документация в настоящее время доступна только на английском языке.
+        <p class="mt-4 text-lg text-foreground-muted">
+          Всё, что вам нужно знать о Classic. Найдите руководства, учебные материалы и ответы на часто задаваемые вопросы.
         </p>
-        <a
-          href={withBase(base, '/help')}
-          class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
-        >
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-          </svg>
-          Смотреть документацию на английском
-        </a>
       </div>
-    </div>
+    </section>
+
+    <section class="bg-surface-dim py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {helpCategories.map((category) => (
+            <div class="rounded-xl border border-border bg-surface p-6">
+              <h3 class="text-lg font-semibold text-foreground">
+                {category.title}
+              </h3>
+              <p class="mt-2 text-sm text-foreground-muted">
+                {category.description}
+              </p>
+              <ul class="mt-4 space-y-2">
+                {category.articles.map((article) => (
+                  <li>
+                    <a
+                      href={withBase(base, `/ru/help/${article.slug}`)}
+                      class="flex items-center gap-2 text-sm text-primary hover:underline"
+                    >
+                      <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      {article.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <h2 class="text-2xl font-bold text-foreground">Популярные статьи</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href={withBase(base, '/ru/help/getting-started')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Краткое руководство</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Начните с Classic за 5 минут.</p>
+          </a>
+          <a href={withBase(base, '/ru/help/markdown')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Справочник Markdown</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Полное руководство по синтаксису Markdown.</p>
+          </a>
+          <a href={withBase(base, '/ru/help/keyboard-shortcuts')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Горячие клавиши</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Работайте быстрее с горячими клавишами.</p>
+          </a>
+          <a href={withBase(base, '/ru/help/local-first')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Архитектура Local-First</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Как Classic защищает конфиденциальность ваших данных.</p>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>

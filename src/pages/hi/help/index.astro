@@ -6,30 +6,140 @@ import Footer from '@/components/layout/Footer.astro';
 import { withBase } from '@/i18n';
 
 const base = import.meta.env.BASE_URL;
+
+const helpCategories = [
+  {
+    title: 'आरंभ करें',
+    description: 'Classic की मूल बातें सीखें और जल्दी शुरू करें।',
+    articles: [
+      { slug: 'getting-started', title: 'त्वरित आरंभ मार्गदर्शिका' },
+      { slug: 'interface', title: 'इंटरफ़ेस समझें' },
+      { slug: 'first-note', title: 'अपनी पहली नोट बनाएं' },
+    ],
+  },
+  {
+    title: 'संपादक और लेखन',
+    description: 'शक्तिशाली संपादक और इसकी सभी सुविधाओं में महारत हासिल करें।',
+    articles: [
+      { slug: 'markdown', title: 'Markdown संदर्भ' },
+      { slug: 'slash-commands', title: 'स्लैश कमांड' },
+      { slug: 'diagrams', title: 'Mermaid डायग्राम' },
+      { slug: 'math', title: 'गणितीय समीकरण' },
+      { slug: 'code-blocks', title: 'कोड ब्लॉक' },
+    ],
+  },
+  {
+    title: 'व्यवस्था',
+    description: 'टैग, सबनोट्स और बैकलिंक्स के साथ अपने नोट्स व्यवस्थित करें।',
+    articles: [
+      { slug: 'subnotes', title: 'सबनोट्स' },
+      { slug: 'tags', title: 'टैग के साथ काम करना' },
+      { slug: 'backlinks', title: 'बैकलिंक्स' },
+      { slug: 'daily-notes', title: 'दैनिक नोट्स' },
+      { slug: 'search', title: 'खोज' },
+    ],
+  },
+  {
+    title: 'उत्पादकता',
+    description: 'शॉर्टकट और ऑटोमेशन के साथ अपनी उत्पादकता बढ़ाएं।',
+    articles: [
+      { slug: 'quick-capture', title: 'त्वरित कैप्चर' },
+      { slug: 'command-palette', title: 'कमांड पैलेट' },
+      { slug: 'keyboard-shortcuts', title: 'कीबोर्ड शॉर्टकट' },
+      { slug: 'system-tray', title: 'सिस्टम ट्रे' },
+    ],
+  },
+  {
+    title: 'डेटा और गोपनीयता',
+    description: 'समझें कि Classic आपके डेटा को कैसे संभालता है।',
+    articles: [
+      { slug: 'local-first', title: 'स्थानीय-पहले आर्किटेक्चर' },
+      { slug: 'backup', title: 'बैकअप और पुनर्स्थापन' },
+      { slug: 'version-history', title: 'संस्करण इतिहास' },
+      { slug: 'import-export', title: 'आयात और निर्यात' },
+    ],
+  },
+  {
+    title: 'अनुकूलन',
+    description: 'Classic को अपने वर्कफ़्लो के अनुसार अनुकूलित करें।',
+    articles: [
+      { slug: 'themes', title: 'थीम और उपस्थिति' },
+      { slug: 'languages', title: 'भाषा सेटिंग्स' },
+      { slug: 'settings', title: 'सेटिंग्स का अवलोकन' },
+    ],
+  },
+];
 ---
 
-<BaseLayout title="सहायता केंद्र — Classic Help">
+<BaseLayout title="सहायता केंद्र — Classic">
   <Header />
-  <main class="min-h-screen bg-surface-dim">
-    <div class="mx-auto max-w-3xl px-6 py-24">
-      <div class="text-center">
+  <main>
+    <section class="py-24 text-center">
+      <div class="mx-auto max-w-6xl px-6">
         <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           सहायता केंद्र
         </h1>
-        <p class="mt-6 text-lg text-foreground-muted">
-          सहायता दस्तावेज़ वर्तमान में केवल अंग्रेजी में उपलब्ध है।
+        <p class="mt-4 text-lg text-foreground-muted">
+          Classic के बारे में आपको जो कुछ भी जानना चाहिए। गाइड, ट्यूटोरियल और अक्सर पूछे जाने वाले प्रश्नों के उत्तर खोजें।
         </p>
-        <a
-          href={withBase(base, '/help')}
-          class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
-        >
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-          </svg>
-          अंग्रेजी दस्तावेज़ देखें
-        </a>
       </div>
-    </div>
+    </section>
+
+    <section class="bg-surface-dim py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {helpCategories.map((category) => (
+            <div class="rounded-xl border border-border bg-surface p-6">
+              <h3 class="text-lg font-semibold text-foreground">
+                {category.title}
+              </h3>
+              <p class="mt-2 text-sm text-foreground-muted">
+                {category.description}
+              </p>
+              <ul class="mt-4 space-y-2">
+                {category.articles.map((article) => (
+                  <li>
+                    <a
+                      href={withBase(base, `/hi/help/${article.slug}`)}
+                      class="flex items-center gap-2 text-sm text-primary hover:underline"
+                    >
+                      <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      {article.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <h2 class="text-2xl font-bold text-foreground">लोकप्रिय लेख</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href={withBase(base, '/hi/help/getting-started')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">त्वरित आरंभ मार्गदर्शिका</h3>
+            <p class="mt-1 text-sm text-foreground-muted">5 मिनट में Classic शुरू करें।</p>
+          </a>
+          <a href={withBase(base, '/hi/help/markdown')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Markdown संदर्भ</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Markdown सिंटैक्स का पूरा गाइड।</p>
+          </a>
+          <a href={withBase(base, '/hi/help/keyboard-shortcuts')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">कीबोर्ड शॉर्टकट</h3>
+            <p class="mt-1 text-sm text-foreground-muted">कीबोर्ड शॉर्टकट से तेज़ी से काम करें।</p>
+          </a>
+          <a href={withBase(base, '/hi/help/local-first')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">स्थानीय-पहले आर्किटेक्चर</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Classic आपके डेटा की गोपनीयता कैसे बनाए रखता है।</p>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>

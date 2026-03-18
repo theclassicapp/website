@@ -6,30 +6,140 @@ import Footer from '@/components/layout/Footer.astro';
 import { withBase } from '@/i18n';
 
 const base = import.meta.env.BASE_URL;
+
+const helpCategories = [
+  {
+    title: 'תחילת עבודה',
+    description: 'למדו את היסודות של Classic והתחילו במהירות.',
+    articles: [
+      { slug: 'getting-started', title: 'מדריך לתחילת עבודה' },
+      { slug: 'interface', title: 'הבנת הממשק' },
+      { slug: 'first-note', title: 'יצירת ההערה הראשונה' },
+    ],
+  },
+  {
+    title: 'העורך והכתיבה',
+    description: 'שלטו בעורך החזק ובכל התכונות שלו.',
+    articles: [
+      { slug: 'markdown', title: 'מדריך Markdown' },
+      { slug: 'slash-commands', title: 'פקודות סלאש' },
+      { slug: 'diagrams', title: 'דיאגרמות Mermaid' },
+      { slug: 'math', title: 'משוואות מתמטיות' },
+      { slug: 'code-blocks', title: 'בלוקי קוד' },
+    ],
+  },
+  {
+    title: 'ארגון',
+    description: 'ארגנו את ההערות שלכם עם תגיות, תת-הערות וקישורים אחוריים.',
+    articles: [
+      { slug: 'subnotes', title: 'תת-הערות' },
+      { slug: 'tags', title: 'עבודה עם תגיות' },
+      { slug: 'backlinks', title: 'קישורים אחוריים' },
+      { slug: 'daily-notes', title: 'הערות יומיות' },
+      { slug: 'search', title: 'חיפוש' },
+    ],
+  },
+  {
+    title: 'פרודוקטיביות',
+    description: 'הגדילו את הפרודוקטיביות שלכם עם קיצורי דרך ואוטומציה.',
+    articles: [
+      { slug: 'quick-capture', title: 'לכידה מהירה' },
+      { slug: 'command-palette', title: 'פלטת הפקודות' },
+      { slug: 'keyboard-shortcuts', title: 'קיצורי מקלדת' },
+      { slug: 'system-tray', title: 'מגש המערכת' },
+    ],
+  },
+  {
+    title: 'נתונים ופרטיות',
+    description: 'הבינו כיצד Classic מטפל בנתונים שלכם.',
+    articles: [
+      { slug: 'local-first', title: 'ארכיטקטורת מקומי תחילה' },
+      { slug: 'backup', title: 'גיבוי ושחזור' },
+      { slug: 'version-history', title: 'היסטוריית גרסאות' },
+      { slug: 'import-export', title: 'ייבוא וייצוא' },
+    ],
+  },
+  {
+    title: 'התאמה אישית',
+    description: 'התאימו אישית את Classic לזרימת העבודה שלכם.',
+    articles: [
+      { slug: 'themes', title: 'ערכות נושא ומראה' },
+      { slug: 'languages', title: 'הגדרות שפה' },
+      { slug: 'settings', title: 'סקירת הגדרות' },
+    ],
+  },
+];
 ---
 
-<BaseLayout title="מרכז העזרה — Classic Help">
+<BaseLayout title="מרכז העזרה — Classic">
   <Header />
-  <main class="min-h-screen bg-surface-dim">
-    <div class="mx-auto max-w-3xl px-6 py-24">
-      <div class="text-center">
+  <main>
+    <section class="py-24 text-center">
+      <div class="mx-auto max-w-6xl px-6">
         <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           מרכז העזרה
         </h1>
-        <p class="mt-6 text-lg text-foreground-muted">
-          תיעוד העזרה זמין כרגע רק באנגלית.
+        <p class="mt-4 text-lg text-foreground-muted">
+          כל מה שאתם צריכים לדעת על Classic. מצאו מדריכים, הדרכות ותשובות לשאלות נפוצות.
         </p>
-        <a
-          href={withBase(base, '/help')}
-          class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
-        >
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-          </svg>
-          הצג תיעוד באנגלית
-        </a>
       </div>
-    </div>
+    </section>
+
+    <section class="bg-surface-dim py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {helpCategories.map((category) => (
+            <div class="rounded-xl border border-border bg-surface p-6">
+              <h3 class="text-lg font-semibold text-foreground">
+                {category.title}
+              </h3>
+              <p class="mt-2 text-sm text-foreground-muted">
+                {category.description}
+              </p>
+              <ul class="mt-4 space-y-2">
+                {category.articles.map((article) => (
+                  <li>
+                    <a
+                      href={withBase(base, `/he/help/${article.slug}`)}
+                      class="flex items-center gap-2 text-sm text-primary hover:underline"
+                    >
+                      <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      {article.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <h2 class="text-2xl font-bold text-foreground">מאמרים פופולריים</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href={withBase(base, '/he/help/getting-started')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">מדריך לתחילת עבודה</h3>
+            <p class="mt-1 text-sm text-foreground-muted">התחילו עם Classic תוך 5 דקות.</p>
+          </a>
+          <a href={withBase(base, '/he/help/markdown')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">מדריך Markdown</h3>
+            <p class="mt-1 text-sm text-foreground-muted">מדריך מלא לתחביר Markdown.</p>
+          </a>
+          <a href={withBase(base, '/he/help/keyboard-shortcuts')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">קיצורי מקלדת</h3>
+            <p class="mt-1 text-sm text-foreground-muted">עבדו מהר יותר עם קיצורי מקלדת.</p>
+          </a>
+          <a href={withBase(base, '/he/help/local-first')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">ארכיטקטורת מקומי תחילה</h3>
+            <p class="mt-1 text-sm text-foreground-muted">כיצד Classic שומר על פרטיות הנתונים שלכם.</p>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>

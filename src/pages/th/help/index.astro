@@ -6,30 +6,140 @@ import Footer from '@/components/layout/Footer.astro';
 import { withBase } from '@/i18n';
 
 const base = import.meta.env.BASE_URL;
+
+const helpCategories = [
+  {
+    title: 'เริ่มต้นใช้งาน',
+    description: 'เรียนรู้พื้นฐานของ Classic และเริ่มต้นได้อย่างรวดเร็ว',
+    articles: [
+      { slug: 'getting-started', title: 'คู่มือเริ่มใช้งานอย่างรวดเร็ว' },
+      { slug: 'interface', title: 'ทำความเข้าใจอินเทอร์เฟซ' },
+      { slug: 'first-note', title: 'สร้างโน้ตแรกของคุณ' },
+    ],
+  },
+  {
+    title: 'เอดิเตอร์และการเขียน',
+    description: 'เชี่ยวชาญเอดิเตอร์อันทรงพลังและฟีเจอร์ทั้งหมด',
+    articles: [
+      { slug: 'markdown', title: 'เอกสารอ้างอิง Markdown' },
+      { slug: 'slash-commands', title: 'Slash Commands' },
+      { slug: 'diagrams', title: 'ไดอะแกรม Mermaid' },
+      { slug: 'math', title: 'สมการคณิตศาสตร์' },
+      { slug: 'code-blocks', title: 'บล็อกโค้ด' },
+    ],
+  },
+  {
+    title: 'การจัดระเบียบ',
+    description: 'จัดระเบียบโน้ตของคุณด้วยแท็ก ซับโน้ต และแบ็กลิงก์',
+    articles: [
+      { slug: 'subnotes', title: 'ซับโน้ต' },
+      { slug: 'tags', title: 'การทำงานกับแท็ก' },
+      { slug: 'backlinks', title: 'แบ็กลิงก์' },
+      { slug: 'daily-notes', title: 'โน้ตประจำวัน' },
+      { slug: 'search', title: 'การค้นหา' },
+    ],
+  },
+  {
+    title: 'ประสิทธิภาพการทำงาน',
+    description: 'เพิ่มประสิทธิภาพการทำงานด้วยชอร์ตคัตและระบบอัตโนมัติ',
+    articles: [
+      { slug: 'quick-capture', title: 'Quick Capture' },
+      { slug: 'command-palette', title: 'Command Palette' },
+      { slug: 'keyboard-shortcuts', title: 'คีย์ลัด' },
+      { slug: 'system-tray', title: 'ถาดระบบ' },
+    ],
+  },
+  {
+    title: 'ข้อมูลและความเป็นส่วนตัว',
+    description: 'เข้าใจวิธีที่ Classic จัดการข้อมูลของคุณ',
+    articles: [
+      { slug: 'local-first', title: 'สถาปัตยกรรม Local-First' },
+      { slug: 'backup', title: 'สำรองและกู้คืนข้อมูล' },
+      { slug: 'version-history', title: 'ประวัติเวอร์ชัน' },
+      { slug: 'import-export', title: 'นำเข้าและส่งออก' },
+    ],
+  },
+  {
+    title: 'การปรับแต่ง',
+    description: 'ปรับแต่ง Classic ให้เหมาะกับเวิร์กโฟลว์ของคุณ',
+    articles: [
+      { slug: 'themes', title: 'ธีมและรูปลักษณ์' },
+      { slug: 'languages', title: 'การตั้งค่าภาษา' },
+      { slug: 'settings', title: 'ภาพรวมการตั้งค่า' },
+    ],
+  },
+];
 ---
 
-<BaseLayout title="ศูนย์ช่วยเหลือ — Classic Help">
+<BaseLayout title="ศูนย์ช่วยเหลือ — Classic">
   <Header />
-  <main class="min-h-screen bg-surface-dim">
-    <div class="mx-auto max-w-3xl px-6 py-24">
-      <div class="text-center">
+  <main>
+    <section class="py-24 text-center">
+      <div class="mx-auto max-w-6xl px-6">
         <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           ศูนย์ช่วยเหลือ
         </h1>
-        <p class="mt-6 text-lg text-foreground-muted">
-          เอกสารความช่วยเหลือพร้อมใช้งานเฉพาะภาษาอังกฤษในขณะนี้
+        <p class="mt-4 text-lg text-foreground-muted">
+          ทุกสิ่งที่คุณต้องรู้เกี่ยวกับ Classic ค้นหาคู่มือ บทช่วยสอน และคำตอบสำหรับคำถามที่พบบ่อย
         </p>
-        <a
-          href={withBase(base, '/help')}
-          class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
-        >
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-          </svg>
-          ดูเอกสารภาษาอังกฤษ
-        </a>
       </div>
-    </div>
+    </section>
+
+    <section class="bg-surface-dim py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {helpCategories.map((category) => (
+            <div class="rounded-xl border border-border bg-surface p-6">
+              <h3 class="text-lg font-semibold text-foreground">
+                {category.title}
+              </h3>
+              <p class="mt-2 text-sm text-foreground-muted">
+                {category.description}
+              </p>
+              <ul class="mt-4 space-y-2">
+                {category.articles.map((article) => (
+                  <li>
+                    <a
+                      href={withBase(base, `/th/help/${article.slug}`)}
+                      class="flex items-center gap-2 text-sm text-primary hover:underline"
+                    >
+                      <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      {article.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <h2 class="text-2xl font-bold text-foreground">บทความยอดนิยม</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href={withBase(base, '/th/help/getting-started')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">คู่มือเริ่มใช้งานอย่างรวดเร็ว</h3>
+            <p class="mt-1 text-sm text-foreground-muted">เริ่มต้นกับ Classic ใน 5 นาที</p>
+          </a>
+          <a href={withBase(base, '/th/help/markdown')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">เอกสารอ้างอิง Markdown</h3>
+            <p class="mt-1 text-sm text-foreground-muted">คู่มือฉบับสมบูรณ์สำหรับไวยากรณ์ Markdown</p>
+          </a>
+          <a href={withBase(base, '/th/help/keyboard-shortcuts')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">คีย์ลัด</h3>
+            <p class="mt-1 text-sm text-foreground-muted">ทำงานได้เร็วขึ้นด้วยคีย์ลัด</p>
+          </a>
+          <a href={withBase(base, '/th/help/local-first')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">สถาปัตยกรรม Local-First</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Classic รักษาความเป็นส่วนตัวของข้อมูลคุณอย่างไร</p>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>

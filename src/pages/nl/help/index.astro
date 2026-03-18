@@ -6,30 +6,140 @@ import Footer from '@/components/layout/Footer.astro';
 import { withBase } from '@/i18n';
 
 const base = import.meta.env.BASE_URL;
+
+const helpCategories = [
+  {
+    title: 'Aan de slag',
+    description: 'Leer de basis van Classic en begin snel.',
+    articles: [
+      { slug: 'getting-started', title: 'Snelstartgids' },
+      { slug: 'interface', title: 'De Interface Begrijpen' },
+      { slug: 'first-note', title: 'Je Eerste Notitie Maken' },
+    ],
+  },
+  {
+    title: 'Editor & Schrijven',
+    description: 'Beheers de krachtige editor en alle functies.',
+    articles: [
+      { slug: 'markdown', title: 'Markdown Referentie' },
+      { slug: 'slash-commands', title: 'Slash Commando\'s' },
+      { slug: 'diagrams', title: 'Mermaid Diagrammen' },
+      { slug: 'math', title: 'Wiskundige Vergelijkingen' },
+      { slug: 'code-blocks', title: 'Codeblokken' },
+    ],
+  },
+  {
+    title: 'Organisatie',
+    description: 'Organiseer je notities met tags, subnotities en backlinks.',
+    articles: [
+      { slug: 'subnotes', title: 'Subnotities' },
+      { slug: 'tags', title: 'Werken met Tags' },
+      { slug: 'backlinks', title: 'Backlinks' },
+      { slug: 'daily-notes', title: 'Dagelijkse Notities' },
+      { slug: 'search', title: 'Zoeken' },
+    ],
+  },
+  {
+    title: 'Productiviteit',
+    description: 'Verhoog je productiviteit met sneltoetsen en automatisering.',
+    articles: [
+      { slug: 'quick-capture', title: 'Snelle Vastlegging' },
+      { slug: 'command-palette', title: 'Commandopalet' },
+      { slug: 'keyboard-shortcuts', title: 'Sneltoetsen' },
+      { slug: 'system-tray', title: 'Systeemvak' },
+    ],
+  },
+  {
+    title: 'Data & Privacy',
+    description: 'Begrijp hoe Classic omgaat met je gegevens.',
+    articles: [
+      { slug: 'local-first', title: 'Local-First Architectuur' },
+      { slug: 'backup', title: 'Back-up & Herstel' },
+      { slug: 'version-history', title: 'Versiegeschiedenis' },
+      { slug: 'import-export', title: 'Importeren & Exporteren' },
+    ],
+  },
+  {
+    title: 'Aanpassing',
+    description: 'Pas Classic aan je workflow aan.',
+    articles: [
+      { slug: 'themes', title: 'Thema\'s & Weergave' },
+      { slug: 'languages', title: 'Taalinstellingen' },
+      { slug: 'settings', title: 'Instellingen Overzicht' },
+    ],
+  },
+];
 ---
 
-<BaseLayout title="Helpcentrum — Classic Help">
+<BaseLayout title="Helpcentrum — Classic">
   <Header />
-  <main class="min-h-screen bg-surface-dim">
-    <div class="mx-auto max-w-3xl px-6 py-24">
-      <div class="text-center">
+  <main>
+    <section class="py-24 text-center">
+      <div class="mx-auto max-w-6xl px-6">
         <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           Helpcentrum
         </h1>
-        <p class="mt-6 text-lg text-foreground-muted">
-          De helpdocumentatie is momenteel alleen beschikbaar in het Engels.
+        <p class="mt-4 text-lg text-foreground-muted">
+          Alles wat je moet weten over Classic. Vind gidsen, tutorials en antwoorden op veelgestelde vragen.
         </p>
-        <a
-          href={withBase(base, '/help')}
-          class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
-        >
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-          </svg>
-          Bekijk Engelse documentatie
-        </a>
       </div>
-    </div>
+    </section>
+
+    <section class="bg-surface-dim py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {helpCategories.map((category) => (
+            <div class="rounded-xl border border-border bg-surface p-6">
+              <h3 class="text-lg font-semibold text-foreground">
+                {category.title}
+              </h3>
+              <p class="mt-2 text-sm text-foreground-muted">
+                {category.description}
+              </p>
+              <ul class="mt-4 space-y-2">
+                {category.articles.map((article) => (
+                  <li>
+                    <a
+                      href={withBase(base, `/nl/help/${article.slug}`)}
+                      class="flex items-center gap-2 text-sm text-primary hover:underline"
+                    >
+                      <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      {article.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <h2 class="text-2xl font-bold text-foreground">Populaire Artikelen</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href={withBase(base, '/nl/help/getting-started')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Snelstartgids</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Begin met Classic in 5 minuten.</p>
+          </a>
+          <a href={withBase(base, '/nl/help/markdown')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Markdown Referentie</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Complete gids voor Markdown syntax.</p>
+          </a>
+          <a href={withBase(base, '/nl/help/keyboard-shortcuts')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Sneltoetsen</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Werk sneller met sneltoetsen.</p>
+          </a>
+          <a href={withBase(base, '/nl/help/local-first')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Local-First Architectuur</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Hoe Classic je gegevensprivacy beschermt.</p>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>
