@@ -6,30 +6,154 @@ import Footer from '@/components/layout/Footer.astro';
 import { withBase } from '@/i18n';
 
 const base = import.meta.env.BASE_URL;
+
+const helpCategories = [
+  {
+    title: '入门指南',
+    description: '了解 Classic 的基础知识，快速上手。',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+    articles: [
+      { slug: 'getting-started', title: '快速入门指南' },
+      { slug: 'interface', title: '了解界面' },
+      { slug: 'first-note', title: '创建你的第一个笔记' },
+    ],
+  },
+  {
+    title: '编辑器与写作',
+    description: '掌握强大的编辑器及其所有功能。',
+    icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
+    articles: [
+      { slug: 'markdown', title: 'Markdown 参考' },
+      { slug: 'slash-commands', title: '斜杠命令' },
+      { slug: 'diagrams', title: 'Mermaid 图表' },
+      { slug: 'math', title: '数学公式与 KaTeX' },
+      { slug: 'code-blocks', title: '代码块与语法高亮' },
+    ],
+  },
+  {
+    title: '组织管理',
+    description: '使用标签、子笔记和反向链接组织你的笔记。',
+    icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+    articles: [
+      { slug: 'subnotes', title: '子笔记与层级结构' },
+      { slug: 'tags', title: '使用标签' },
+      { slug: 'backlinks', title: '反向链接与连接' },
+      { slug: 'daily-notes', title: '日记' },
+      { slug: 'search', title: '搜索与查找' },
+    ],
+  },
+  {
+    title: '效率提升',
+    description: '使用快捷键和自动化提高生产力。',
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    articles: [
+      { slug: 'quick-capture', title: '快速捕捉' },
+      { slug: 'command-palette', title: '命令面板' },
+      { slug: 'keyboard-shortcuts', title: '键盘快捷键' },
+      { slug: 'system-tray', title: '系统托盘' },
+    ],
+  },
+  {
+    title: '数据与隐私',
+    description: '了解 Classic 如何处理你的数据。',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    articles: [
+      { slug: 'local-first', title: '本地优先架构' },
+      { slug: 'backup', title: '备份与恢复' },
+      { slug: 'version-history', title: '版本历史' },
+      { slug: 'import-export', title: '导入与导出' },
+    ],
+  },
+  {
+    title: '个性化设置',
+    description: '自定义 Classic 以适应你的工作流程。',
+    icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
+    articles: [
+      { slug: 'themes', title: '主题与外观' },
+      { slug: 'languages', title: '语言设置' },
+      { slug: 'settings', title: '设置概览' },
+    ],
+  },
+];
 ---
 
-<BaseLayout title="帮助中心 — Classic Help">
+<BaseLayout title="帮助中心 — Classic">
   <Header />
-  <main class="min-h-screen bg-surface-dim">
-    <div class="mx-auto max-w-3xl px-6 py-24">
-      <div class="text-center">
+  <main>
+    <!-- Page Header -->
+    <section class="py-24 text-center">
+      <div class="mx-auto max-w-6xl px-6">
         <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           帮助中心
         </h1>
-        <p class="mt-6 text-lg text-foreground-muted">
-          帮助文档目前仅提供英文版本。
+        <p class="mt-4 text-lg text-foreground-muted">
+          关于 Classic 的一切。查找指南、教程和常见问题的答案。
         </p>
-        <a
-          href={withBase(base, '/help')}
-          class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
-        >
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-          </svg>
-          查看英文文档
-        </a>
       </div>
-    </div>
+    </section>
+
+    <!-- Help Categories -->
+    <section class="bg-surface-dim py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {helpCategories.map((category) => (
+            <div class="rounded-xl border border-border bg-surface p-6">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={category.icon} />
+                </svg>
+              </div>
+              <h3 class="mt-4 text-lg font-semibold text-foreground">
+                {category.title}
+              </h3>
+              <p class="mt-2 text-sm text-foreground-muted">
+                {category.description}
+              </p>
+              <ul class="mt-4 space-y-2">
+                {category.articles.map((article) => (
+                  <li>
+                    <a
+                      href={withBase(base, `/zh-CN/help/${article.slug}`)}
+                      class="flex items-center gap-2 text-sm text-primary hover:underline"
+                    >
+                      <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      {article.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <h2 class="text-2xl font-bold text-foreground">热门文章</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href={withBase(base, '/zh-CN/help/getting-started')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">快速入门指南</h3>
+            <p class="mt-1 text-sm text-foreground-muted">5 分钟快速上手 Classic。</p>
+          </a>
+          <a href={withBase(base, '/zh-CN/help/markdown')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Markdown 参考</h3>
+            <p class="mt-1 text-sm text-foreground-muted">完整的 Markdown 语法指南。</p>
+          </a>
+          <a href={withBase(base, '/zh-CN/help/keyboard-shortcuts')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">键盘快捷键</h3>
+            <p class="mt-1 text-sm text-foreground-muted">使用快捷键提高工作效率。</p>
+          </a>
+          <a href={withBase(base, '/zh-CN/help/local-first')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">本地优先架构</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Classic 如何保护你的数据隐私。</p>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>

@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from 'astro:content';
+import HelpLayout from '@/components/help/HelpLayout.astro';
+
+export async function getStaticPaths() {
+  const helpEntries = await getCollection('help');
+  const localeEntries = helpEntries.filter(entry => entry.slug.startsWith('tr/'));
+  return localeEntries.map(entry => ({
+    params: { slug: entry.slug.replace('tr/', '') },
+  }));
+}
+
+const slug = Astro.params.slug as string;
+const entry = (await getCollection('help')).find(e => e.slug === `tr/${slug}`);
+
+if (!entry) {
+  return Astro.redirect('/tr/help');
+}
+
+const { Content } = await render(entry);
+---
+
+<HelpLayout currentSlug={slug} locale="tr">
+  <Content />
+</HelpLayout>
