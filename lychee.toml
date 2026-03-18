@@ -1,0 +1,31 @@
+# Lychee link checker configuration
+# https://lychee.cli.rs/#/configuration/file
+
+# Root directory for resolving local links
+root_dir = "dist"
+
+# Output settings
+no_progress = true
+
+# Concurrency and retry settings
+max_concurrency = 4
+retry_wait_time = 10
+max_retries = 3
+timeout = 30
+
+# Accept these HTTP status codes
+accept = ["100..=103", "200..=299", "429"]
+
+# Exclude patterns
+exclude = [
+    "favicon.ico",
+    "/404$",
+    "github.com/theclassicapp/classic/releases",
+    "theclassic.app/404",
+]
+
+# Don't include mail links (mailto:)
+include_mail = false
+
+# Exclude loopback addresses (localhost, 127.0.0.1)
+exclude_loopback = true
