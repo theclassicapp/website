@@ -37,16 +37,14 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           args: >
-            --base dist
+            --root-dir dist
             --no-progress
-            --exclude-mail
-            --exclude-loopback
             --max-concurrency 4
             --retry-wait-time 10
             --max-retries 3
             --timeout 30
             --accept 100..=103,200..=299,429
-            '**/*.html'
+            'dist/**/*.html'
           fail: true
           output: ./lychee-report.md
         env:
