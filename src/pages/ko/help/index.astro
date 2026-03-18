@@ -6,30 +6,140 @@ import Footer from '@/components/layout/Footer.astro';
 import { withBase } from '@/i18n';
 
 const base = import.meta.env.BASE_URL;
+
+const helpCategories = [
+  {
+    title: '시작하기',
+    description: 'Classic의 기본 사항을 배우고 빠르게 시작하세요.',
+    articles: [
+      { slug: 'getting-started', title: '빠른 시작 가이드' },
+      { slug: 'interface', title: '인터페이스 이해하기' },
+      { slug: 'first-note', title: '첫 번째 노트 만들기' },
+    ],
+  },
+  {
+    title: '에디터와 작성',
+    description: '강력한 에디터와 모든 기능을 마스터하세요.',
+    articles: [
+      { slug: 'markdown', title: 'Markdown 참조' },
+      { slug: 'slash-commands', title: '슬래시 명령어' },
+      { slug: 'diagrams', title: 'Mermaid 다이어그램' },
+      { slug: 'math', title: '수학 공식' },
+      { slug: 'code-blocks', title: '코드 블록' },
+    ],
+  },
+  {
+    title: '정리',
+    description: '태그, 하위 노트, 백링크로 노트를 정리하세요.',
+    articles: [
+      { slug: 'subnotes', title: '하위 노트' },
+      { slug: 'tags', title: '태그 작업' },
+      { slug: 'backlinks', title: '백링크' },
+      { slug: 'daily-notes', title: '일일 노트' },
+      { slug: 'search', title: '검색' },
+    ],
+  },
+  {
+    title: '생산성',
+    description: '단축키와 자동화로 생산성을 높이세요.',
+    articles: [
+      { slug: 'quick-capture', title: '빠른 캡처' },
+      { slug: 'command-palette', title: '명령어 팔레트' },
+      { slug: 'keyboard-shortcuts', title: '키보드 단축키' },
+      { slug: 'system-tray', title: '시스템 트레이' },
+    ],
+  },
+  {
+    title: '데이터와 개인정보',
+    description: 'Classic이 데이터를 처리하는 방법을 이해하세요.',
+    articles: [
+      { slug: 'local-first', title: '로컬 우선 아키텍처' },
+      { slug: 'backup', title: '백업 및 복원' },
+      { slug: 'version-history', title: '버전 기록' },
+      { slug: 'import-export', title: '가져오기 및 내보내기' },
+    ],
+  },
+  {
+    title: '사용자 정의',
+    description: 'Classic을 워크플로에 맞게 사용자 정의하세요.',
+    articles: [
+      { slug: 'themes', title: '테마 및 모양' },
+      { slug: 'languages', title: '언어 설정' },
+      { slug: 'settings', title: '설정 개요' },
+    ],
+  },
+];
 ---
 
-<BaseLayout title="도움말 센터 — Classic Help">
+<BaseLayout title="도움말 센터 — Classic">
   <Header />
-  <main class="min-h-screen bg-surface-dim">
-    <div class="mx-auto max-w-3xl px-6 py-24">
-      <div class="text-center">
+  <main>
+    <section class="py-24 text-center">
+      <div class="mx-auto max-w-6xl px-6">
         <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           도움말 센터
         </h1>
-        <p class="mt-6 text-lg text-foreground-muted">
-          현재 도움말 문서는 영어로만 제공됩니다.
+        <p class="mt-4 text-lg text-foreground-muted">
+          Classic에 대해 알아야 할 모든 것. 가이드, 튜토리얼 및 자주 묻는 질문에 대한 답변을 찾아보세요.
         </p>
-        <a
-          href={withBase(base, '/help')}
-          class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
-        >
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-          </svg>
-          영어 문서 보기
-        </a>
       </div>
-    </div>
+    </section>
+
+    <section class="bg-surface-dim py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {helpCategories.map((category) => (
+            <div class="rounded-xl border border-border bg-surface p-6">
+              <h3 class="text-lg font-semibold text-foreground">
+                {category.title}
+              </h3>
+              <p class="mt-2 text-sm text-foreground-muted">
+                {category.description}
+              </p>
+              <ul class="mt-4 space-y-2">
+                {category.articles.map((article) => (
+                  <li>
+                    <a
+                      href={withBase(base, `/ko/help/${article.slug}`)}
+                      class="flex items-center gap-2 text-sm text-primary hover:underline"
+                    >
+                      <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      {article.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="mx-auto max-w-6xl px-6">
+        <h2 class="text-2xl font-bold text-foreground">인기 문서</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href={withBase(base, '/ko/help/getting-started')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">빠른 시작 가이드</h3>
+            <p class="mt-1 text-sm text-foreground-muted">5분 만에 Classic 시작하기.</p>
+          </a>
+          <a href={withBase(base, '/ko/help/markdown')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">Markdown 참조</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Markdown 구문에 대한 완전한 가이드.</p>
+          </a>
+          <a href={withBase(base, '/ko/help/keyboard-shortcuts')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">키보드 단축키</h3>
+            <p class="mt-1 text-sm text-foreground-muted">키보드 단축키로 더 빠르게 작업하세요.</p>
+          </a>
+          <a href={withBase(base, '/ko/help/local-first')} class="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-primary">
+            <h3 class="font-medium text-foreground">로컬 우선 아키텍처</h3>
+            <p class="mt-1 text-sm text-foreground-muted">Classic이 데이터 개인정보를 보호하는 방법.</p>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>
